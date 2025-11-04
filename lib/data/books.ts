@@ -3,11 +3,11 @@ import { BookCardProps } from '@/components/books/BookCard'
 export const animalBreedingBooks: BookCardProps[] = [
   {
     id: 'mrode-2023',
-    title: 'Linear Models for the Prediction of Genetic Merit of Animals',
-    authors: ['Raphael A. Mrode', 'Robin Thompson'],
+    title: 'Linear Models for the Prediction of Genetic Merit of Animals, 4th',
+    authors: ['Raphael A. Mrode', 'Ivan Pocrnic'],
     year: 2023,
     priority: 'essential',
-    difficulty: 'advanced',
+    difficulty: 'intermediate',
     description: 'The 4th edition of this comprehensive textbook covering BLUP, linear models, and genetic evaluation methods. Essential reading for understanding modern animal breeding.',
     coverImage: '/images/books/mrode-linear-models-2023.jpg',
     isbn: '978-1800620483',
@@ -50,12 +50,13 @@ export const animalBreedingBooks: BookCardProps[] = [
   },
   {
     id: 'schaeffer-2010',
-    title: 'Animal Models',
-    authors: ['Larry Schaeffer'],
+    title: 'Linear Models and Animal Breeding',
+    authors: ['Larry R. Schaeffer'],
     year: 2010,
     priority: 'recommended',
     difficulty: 'intermediate',
     description: 'Comprehensive course notes on animal models for genetic evaluation. Clear explanations with practical examples.',
+    coverImage: '/images/books/schaeffer-linear-models-2010.png',
     tags: ['Animal Models', 'BLUP', 'Course Notes'],
     links: [
       {
@@ -85,12 +86,14 @@ export const animalBreedingBooks: BookCardProps[] = [
   },
   {
     id: 'van-vleck-1993',
-    title: 'Genetics for the Animal Sciences',
-    authors: ['L. Dale Van Vleck', 'Edward J. Pollak', 'E.A. Branford Oltenacu'],
+    title: 'Selection Index and Introduction to Mixed Model Methods',
+    authors: ['L. Dale Van Vleck'],
     year: 1993,
     priority: 'recommended',
     difficulty: 'beginner',
-    description: 'The "Green Book" - an excellent introduction to quantitative genetics and animal breeding principles. Great for beginners.',
+    description: 'The "Green Book" - an excellent introduction to quantitative genetics and animal breeding principles. Great for first year Masters students.',
+    coverImage: '/images/books/van-vleck-green-book-1994.jpg',
+    isbn: '978-0849387623',
     tags: ['Quantitative Genetics', 'Introduction', 'Green Book'],
     notes: 'Known as the "Green Book" in the animal breeding community',
     links: [
@@ -103,11 +106,12 @@ export const animalBreedingBooks: BookCardProps[] = [
   },
   {
     id: 'van-vleck-selection',
-    title: 'Selection Principles',
+    title: 'Notes on the theory and application of selection principles for the genetic improvement of animals',
     authors: ['L. Dale Van Vleck'],
     priority: 'supplemental',
     difficulty: 'intermediate',
     description: 'Course notes on selection principles and breeding methods from Dr. Van Vleck.',
+    coverImage: '/images/books/van-vleck-notes.png',
     tags: ['Selection', 'Breeding Methods'],
     links: [
       {
@@ -125,12 +129,13 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'recommended',
     difficulty: 'intermediate',
     description: 'Comprehensive coverage of selection index theory and application in animal breeding programs.',
+    coverImage: '/images/books/cameron-selection-index-1997.jpg',
     tags: ['Selection Index', 'Breeding Goals'],
     links: [
       {
-        type: 'pdf',
-        url: '/pdfs/books/animal-breeding/Cameron_1997_Selection_Index.pdf',
-        label: 'View PDF',
+        type: 'amazon',
+        url: 'https://www.amazon.com/Selection-Indices-Prediction-Genetic-Breeding/dp/0851991696/ref=sr_1_1?crid=3BL7HDX4YKLJG&dib=eyJ2IjoiMSJ9.J_irPiqmAf7CGU_5oz9ZFA.4LP_H3mUokO1E_JLAickYd2ZzSza2EEBHOmhgzmvfcE&dib_tag=se&keywords=cameron+selection+index&qid=1762281692&sprefix=cameron+selec%2Caps%2C176&sr=8-1',
+        label: 'Amazon',
       },
     ],
   },
@@ -142,6 +147,7 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'recommended',
     difficulty: 'beginner',
     description: 'Comprehensive undergraduate textbook from Wageningen University. Covers fundamental principles of animal breeding and genetics. Second edition (2024).',
+    coverImage: '/images/books/wur-undergrad-online-book.png',
     tags: ['Introduction', 'Undergraduate', 'Comprehensive'],
     links: [
       {
@@ -163,6 +169,7 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'supplemental',
     difficulty: 'intermediate',
     description: 'Covers the economic considerations and decision-making in animal breeding programs. Essential for understanding breeding program design.',
+    coverImage: '/images/books/weller-economic-aspects-1994.png',
     isbn: '978-0412597503',
     tags: ['Economics', 'Breeding Programs'],
     links: [
@@ -180,6 +187,7 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'recommended',
     difficulty: 'advanced',
     description: 'Modern methods for GWAS and genomic prediction. Essential reading for understanding contemporary genomic breeding approaches.',
+    coverImage: '/images/books/gondro-gwas-2013.png',
     isbn: '978-1627034463',
     tags: ['GWAS', 'Genomic Prediction', 'Modern Methods'],
     links: [
@@ -197,6 +205,7 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'supplemental',
     difficulty: 'beginner',
     description: 'Practical guidelines for implementing beef cattle improvement programs. Wiki-based resource updated regularly.',
+    coverImage: '/images/books/bif-wiki-online.png',
     tags: ['Beef Cattle', 'Guidelines', 'Industry Standards'],
     links: [
       {
