@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="dna-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="600" fill="url(#dna-gradient)"/>
+  
+  <!-- DNA Double Helix -->
+  <g stroke="#3b82f6" stroke-width="8" fill="none">
+    <!-- Left strand -->
+    <path d="M 150 50 Q 100 150 150 250 Q 200 350 150 450 Q 100 550 150 600" stroke-opacity="0.7"/>
+    <!-- Right strand -->
+    <path d="M 250 50 Q 300 150 250 250 Q 200 350 250 450 Q 300 550 250 600" stroke-opacity="0.7"/>
+    
+    <!-- Connecting base pairs -->
+    <line x1="150" y1="100" x2="250" y2="100" stroke="#8b5cf6" stroke-opacity="0.5"/>
+    <line x1="150" y1="200" x2="250" y2="200" stroke="#8b5cf6" stroke-opacity="0.5"/>
+    <line x1="150" y1="300" x2="250" y2="300" stroke="#8b5cf6" stroke-opacity="0.5"/>
+    <line x1="150" y1="400" x2="250" y2="400" stroke="#8b5cf6" stroke-opacity="0.5"/>
+    <line x1="150" y1="500" x2="250" y2="500" stroke="#8b5cf6" stroke-opacity="0.5"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="320" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#3b82f6" text-anchor="middle" opacity="0.8">
+    DNA
+  </text>
+</svg>

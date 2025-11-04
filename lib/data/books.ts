@@ -237,9 +237,79 @@ export const animalBreedingBooks: BookCardProps[] = [
   },
 ]
 
-// Placeholder data for other categories - you can populate these later
+// Quantitative Genetics Books
 export const quantitativeGeneticsBooks: BookCardProps[] = [
-  // Add quantitative genetics books here
+  {
+    id: 'falconer-mackay-1996',
+    title: 'Introduction to Quantitative Genetics',
+    authors: ['Douglas S. Falconer', 'Trudy F.C. Mackay'],
+    year: 1996,
+    priority: 'essential',
+    difficulty: 'intermediate',
+    description: 'The foundational textbook for quantitative genetics. Classic introduction covering fundamental principles of inheritance, heritability, selection response, and breeding theory.',
+    coverImage: '/images/books/generic-dna.svg',
+    tags: ['Quantitative Genetics', 'Heritability', 'Selection', 'Classic'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Introduction-Quantitative-Genetics-Falconer-Paperback/dp/B00OX8KG2M/ref=sr_1_2?crid=1OQTRA19SJA35&keywords=falconer+and+mackay&qid=1701186876&sprefix=falconer+and+mackay%2Caps%2C152&sr=8-2',
+        label: 'Amazon',
+      },
+    ],
+  },
+  {
+    id: 'walsh-lynch-2018',
+    title: 'Evolution and Selection of Quantitative Traits',
+    authors: ['Bruce Walsh', 'Michael Lynch'],
+    year: 2018,
+    priority: 'essential',
+    difficulty: 'advanced',
+    description: '2nd edition of the famous Lynch and Walsh (1998) book on quantitative genetics. Comprehensive modern treatment of evolutionary quantitative genetics.',
+    coverImage: '/images/books/generic-dna.svg',
+    tags: ['Quantitative Genetics', 'Evolution', 'Advanced'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Evolution-Selection-Quantitative-Traits-Bruce/dp/0198830874/ref=sr_1_2?crid=263R7JLY47EQ4&keywords=quantitative+genetics&qid=1701187926&s=books&sprefix=quantitative+genetics%2Cstripbooks%2C133&sr=1-2',
+        label: 'Amazon',
+      },
+    ],
+  },
+  {
+    id: 'lynch-walsh-1998',
+    title: 'Genetics and Analysis of Quantitative Traits',
+    authors: ['Michael Lynch', 'Bruce Walsh'],
+    year: 1998,
+    priority: 'recommended',
+    difficulty: 'advanced',
+    description: 'Classic book to learn mathematics associated with quantitative genetics. Rigorous treatment of theory and methods. First edition of Walsh and Lynch (2018).',
+    coverImage: '/images/books/generic-dna.svg',
+    tags: ['Quantitative Genetics', 'Mathematics', 'Theory'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Genetics-Analysis-Quantitative-Traits-Michael/dp/0878934812/ref=sr_1_1?crid=1QJ2DK857PU1R&keywords=Lynch+and+Walsh+%281998%29&qid=1701188067&s=books&sprefix=lynch+and+walsh+1998+%2Cstripbooks%2C242&sr=1-1',
+        label: 'Amazon',
+      },
+    ],
+  },
+  {
+    id: 'coop-popgen',
+    title: 'Population and Quantitative Genetics',
+    authors: ['Graham Coop'],
+    priority: 'recommended',
+    difficulty: 'intermediate',
+    description: 'Open source textbook (Creative Commons license) on population and quantitative genetics. Available freely on GitHub. 3rd edition.',
+    coverImage: '/images/books/generic-dna.svg',
+    tags: ['Quantitative Genetics', 'Population Genetics', 'Open Source'],
+    links: [
+      {
+        type: 'github',
+        url: 'https://github.com/cooplab/popgen-notes',
+        label: 'GitHub Repository',
+      },
+    ],
+  },
 ]
 
 export const bayesianBooks: BookCardProps[] = [

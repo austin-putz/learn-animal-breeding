@@ -16,7 +16,7 @@ const categories = [
     href: '/learn/books/quantitative-genetics',
     icon: Dna,
     description: 'Fundamental principles of quantitative genetics and heredity',
-    bookCount: 0,
+    bookCount: 4,
     color: 'purple',
   },
   {
