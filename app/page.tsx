@@ -1,15 +1,11 @@
 import { Button } from '@/components/ui/Button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
 import { BookOpen, Code, GraduationCap, Library } from 'lucide-react'
 
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main>
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary-50 to-white dark:from-primary-950 dark:to-neutral-950">
           <div className="container mx-auto px-4">
@@ -106,8 +102,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   )
 }

@@ -130,11 +130,31 @@ export const animalBreedingBooks: BookCardProps[] = [
     difficulty: 'intermediate',
     description: 'Comprehensive coverage of selection index theory and application in animal breeding programs.',
     coverImage: '/images/books/cameron-selection-index-1997.jpg',
+    isbn: '978-0851991696',
     tags: ['Selection Index', 'Breeding Goals'],
     links: [
       {
         type: 'amazon',
         url: 'https://www.amazon.com/Selection-Indices-Prediction-Genetic-Breeding/dp/0851991696/ref=sr_1_1?crid=3BL7HDX4YKLJG&dib=eyJ2IjoiMSJ9.J_irPiqmAf7CGU_5oz9ZFA.4LP_H3mUokO1E_JLAickYd2ZzSza2EEBHOmhgzmvfcE&dib_tag=se&keywords=cameron+selection+index&qid=1762281692&sprefix=cameron+selec%2Caps%2C176&sr=8-1',
+        label: 'Amazon',
+      },
+    ],
+  },
+  {
+    id: 'bourdon-1999',
+    title: 'Understanding Animal Breeding',
+    authors: ['Richard M. Bourdon'],
+    year: 1999,
+    priority: 'recommended',
+    difficulty: 'beginner',
+    description: 'Perfect for undergraduates and new graduate students with no breeding background. Clear, accessible introduction to animal breeding principles. Second edition.',
+    coverImage: '/images/books/bourdon-animal-breeding-1999.jpg',
+    isbn: '978-0130964496',
+    tags: ['Introduction', 'Undergraduate', 'Beginner-Friendly'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Understanding-Animal-Breeding-Richard-Bourdon/dp/0130964492/ref=sr_1_1?crid=3USN3D35H08AI&dib=eyJ2IjoiMSJ9.fz2pMNmtfLl8gAvRV6zoL3aAO-JtkrYvsHjVActSzJmDOSaCa3bx-hStfNnOYEaYfQF_BlqKthXxOQ-_tZftnnfklHJlEQImpjh_9Nn_Kc4.k6zdUXV2v8w81zRphm3W7JxKr1s7tA49AwLziAuvS_E&dib_tag=se&keywords=bourdon+animal+breeding&qid=1762282301&sprefix=bourdon+animal+breeding%2Caps%2C160&sr=8-1',
         label: 'Amazon',
       },
     ],
