@@ -9,6 +9,7 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'essential',
     difficulty: 'advanced',
     description: 'The 4th edition of this comprehensive textbook covering BLUP, linear models, and genetic evaluation methods. Essential reading for understanding modern animal breeding.',
+    coverImage: '/images/books/mrode-linear-models-2023.jpg',
     isbn: '978-1800620483',
     tags: ['BLUP', 'Linear Models', 'Genetic Evaluation'],
     links: [
@@ -37,6 +38,7 @@ export const animalBreedingBooks: BookCardProps[] = [
     priority: 'essential',
     difficulty: 'advanced',
     description: 'Classic textbook by C.R. Henderson, the father of BLUP. Fundamental reading for understanding mixed model equations and genetic evaluation.',
+    coverImage: '/images/books/henderson-linear-models-1984.png',
     tags: ['BLUP', 'Mixed Models', 'Henderson'],
     links: [
       {
@@ -65,16 +67,18 @@ export const animalBreedingBooks: BookCardProps[] = [
   },
   {
     id: 'legarra-genomic',
-    title: 'Genomic Prediction of Complex Traits',
-    authors: ['Andres Legarra', 'Zulma Vitezica'],
+    title: 'Bases for Genomic Prediction',
+    authors: ['Andres Legarra', 'Daniela A.L. Lourenco', 'Zulma G. Vitezica'],
+    year: 2024,
     priority: 'essential',
     difficulty: 'advanced',
-    description: 'Modern textbook on genomic selection and prediction methods. Covers single-step GBLUP, GWAS, and advanced genomic methods.',
+    description: 'Modern textbook on genomic selection and prediction methods. Covers single-step GBLUP, GWAS, and advanced genomic methods. Latest 2024 edition.',
+    coverImage: '/images/books/legarra-genomic-prediction-2024.png',
     tags: ['Genomic Selection', 'ssGBLUP', 'GWAS'],
     links: [
       {
         type: 'pdf',
-        url: '/pdfs/books/animal-breeding/Legarra_Book_Genomic_Prediction.pdf',
+        url: '/pdfs/books/animal-breeding/Legarra_Genomic_Prediction_2024-05-11.pdf',
         label: 'View PDF',
       },
     ],
