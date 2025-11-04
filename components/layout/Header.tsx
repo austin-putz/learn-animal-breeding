@@ -22,16 +22,53 @@ export function Header() {
           <Link href="/about" className="text-sm font-medium hover:text-primary-600 transition-colors">
             About
           </Link>
+
+          {/* Learn Dropdown */}
           <div className="relative group">
             <button className="text-sm font-medium hover:text-primary-600 transition-colors">
               Learn ▾
             </button>
+            <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-lg border border-neutral-200 dark:border-neutral-800 py-2">
+                <Link href="/learn/books" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  📚 Books
+                </Link>
+                <Link href="/learn/course-notes" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  📝 Course Notes
+                </Link>
+                <Link href="/learn/my-notes" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  ✍️ My Notes
+                </Link>
+                <Link href="/learn/short-courses" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  🎓 Short Courses
+                </Link>
+                <Link href="/learn/youtube" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  🎥 YouTube Resources
+                </Link>
+              </div>
+            </div>
           </div>
+
+          {/* Resources Dropdown */}
           <div className="relative group">
             <button className="text-sm font-medium hover:text-primary-600 transition-colors">
               Resources ▾
             </button>
+            <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-lg border border-neutral-200 dark:border-neutral-800 py-2">
+                <Link href="/resources/software" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  🛠️ Software Tools
+                </Link>
+                <Link href="/resources/skills" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  💡 Technical Skills
+                </Link>
+                <Link href="/resources/journals" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  📰 Journals
+                </Link>
+              </div>
+            </div>
           </div>
+
           <Link href="/blog" className="text-sm font-medium hover:text-primary-600 transition-colors">
             Blog
           </Link>

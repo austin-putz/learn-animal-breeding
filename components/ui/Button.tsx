@@ -8,6 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string
   target?: string
   rel?: string
+  download?: boolean | string
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -19,6 +20,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     href,
     target,
     rel,
+    download,
     ...props
   }, ref) => {
     const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 disabled:pointer-events-none disabled:opacity-50'
@@ -45,6 +47,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     )
 
     if (href) {
+      // Use regular anchor tag for download links
+      if (download !== undefined) {
+        return (
+          <a
+            href={href}
+            className={classes}
+            target={target}
+            rel={rel}
+            download={download}
+          >
+            {children}
+          </a>
+        )
+      }
+
+      // Use Next.js Link for navigation
       return (
         <Link
           href={href}
