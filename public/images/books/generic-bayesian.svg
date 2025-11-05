@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bayes-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="600" fill="url(#bayes-gradient)"/>
+  
+  <!-- Bayes Theorem Symbol -->
+  <g stroke="#10b981" stroke-width="4" fill="none">
+    <!-- Large Circle (Prior) -->
+    <circle cx="150" cy="200" r="80" stroke-opacity="0.7" stroke-width="6"/>
+    <text x="150" y="210" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981" text-anchor="middle" opacity="0.8">
+      P(θ)
+    </text>
+    
+    <!-- Large Circle (Likelihood) -->
+    <circle cx="250" cy="200" r="80" stroke-opacity="0.7" stroke-width="6"/>
+    <text x="250" y="210" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981" text-anchor="middle" opacity="0.8">
+      P(D|θ)
+    </text>
+    
+    <!-- Intersection (Posterior) -->
+    <circle cx="200" cy="320" r="90" stroke="#059669" stroke-opacity="0.8" stroke-width="8"/>
+    <text x="200" y="330" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#059669" text-anchor="middle">
+      P(θ|D)
+    </text>
+  </g>
+  
+  <!-- Arrows -->
+  <g stroke="#10b981" stroke-width="4" fill="#10b981">
+    <line x1="175" y1="270" x2="190" y2="290" marker-end="url(#arrowhead)" stroke-opacity="0.6"/>
+    <line x1="225" y1="270" x2="210" y2="290" marker-end="url(#arrowhead)" stroke-opacity="0.6"/>
+  </g>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#10b981"/>
+    </marker>
+  </defs>
+  
+  <!-- Title Text -->
+  <text x="200" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#10b981" text-anchor="middle" opacity="0.8">
+    Bayesian
+  </text>
+  <text x="200" y="520" font-family="Arial, sans-serif" font-size="32" font-weight="normal" fill="#059669" text-anchor="middle" opacity="0.7">
+    Methods
+  </text>
+</svg>

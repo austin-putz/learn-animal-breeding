@@ -313,15 +313,122 @@ export const quantitativeGeneticsBooks: BookCardProps[] = [
 ]
 
 export const bayesianBooks: BookCardProps[] = [
-  // Add Bayesian statistics books here
+  {
+    id: 'sorensen-gianola-2002',
+    title: 'Likelihood, Bayesian, and MCMC Methods in Quantitative Genetics',
+    authors: ['Daniel Sorensen', 'Daniel Gianola'],
+    year: 2002,
+    priority: 'essential',
+    difficulty: 'advanced',
+    description: 'Comprehensive treatment of Bayesian methods and MCMC techniques for quantitative genetics. Essential reading for understanding modern Bayesian approaches in animal breeding.',
+    coverImage: '/images/books/sorensen-bayesian-2002.webp',
+    isbn: '978-0387954400',
+    tags: ['Bayesian', 'MCMC', 'Quantitative Genetics', 'Advanced'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Likelihood-Bayesian-Quantitative-Genetics-Statistics/dp/0387954406/ref=sr_1_1?crid=3GSIGKB681HNG&keywords=gianola+and+sorensen+book&qid=1701795986&sprefix=gianola+and+sorensen+book%2Caps%2C137&sr=8-1',
+        label: 'Amazon',
+      },
+    ],
+  },
+  {
+    id: 'blasco-2017',
+    title: 'Bayesian Data Analysis for Animal Scientists',
+    authors: ['Agustin Blasco'],
+    year: 2017,
+    priority: 'recommended',
+    difficulty: 'intermediate',
+    description: 'Practical introduction to Bayesian data analysis specifically designed for animal scientists. Covers applications and implementation of Bayesian methods in animal breeding contexts.',
+    coverImage: '/images/books/blasco-bayesian-2017.jpg',
+    isbn: '978-3319542737',
+    tags: ['Bayesian', 'Data Analysis', 'Practical', 'Animal Science'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Bayesian-Data-Analysis-Animal-Scientists/dp/3319542737/ref=sr_1_1?crid=3RISZQ7E8TB8B&keywords=Bayesian+Data+Analysis+for+Animal+Scientists&qid=1701796411&s=books&sprefix=bayesian+data+analysis+for+animal+scientists%2Cstripbooks%2C107&sr=1-1',
+        label: 'Amazon',
+      },
+    ],
+  },
 ]
 
 export const statisticsBooks: BookCardProps[] = [
-  // Add statistics books here
+  {
+    id: 'searle-linear-models-1997',
+    title: 'Linear Models',
+    authors: ['Shayle R. Searle'],
+    year: 1997,
+    priority: 'essential',
+    difficulty: 'advanced',
+    description: 'Classic comprehensive treatment of linear models. Essential reference for understanding the mathematical foundations of mixed models, BLUP, and statistical analysis in animal breeding.',
+    coverImage: '/images/books/searle-linear-models-1997.jpg',
+    isbn: '978-0471184997',
+    tags: ['Linear Models', 'Statistics', 'Mathematical Foundations', 'Advanced'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Linear-Models-Shayle-R-Searle/dp/0471184993/ref=sr_1_1?crid=3I2TLKMEUGFK8&dib=eyJ2IjoiMSJ9.E00FNkMCl8Xs_DWlfvE9PoJpII9BjBlxlgKktuO_qKF3304SOtwzXp81MJ4JVOJ5zRK-jbdDohR01L87x5Nyf0D4tgC2xr8bGsqKjlYiuZqofsaK-2eGS4ZZ_-19kI3Bl2YWFVi621J8nc-T4ihIfngi_jIspfgkNqaMRD52RSAJIVvIe_elOpV8SdrWOzu3kIcPaSrvUXYn-8UCiXIVYHth4O4Q9rgqjiwQvFOxM48.YRE7-ZUZko3GURryHJlBWHiaG6Bg97cKSDRkPYJdM0U&dib_tag=se&keywords=linear+models+searle&qid=1762310772&sprefix=linear+models+searle%2Caps%2C220&sr=8-1',
+        label: 'Amazon',
+      },
+    ],
+  },
 ]
 
 export const mathematicsBooks: BookCardProps[] = [
-  // Add mathematics books here
+  {
+    id: 'searle-matrix-algebra-2017',
+    title: 'Matrix Algebra Useful for Statistics',
+    authors: ['Shayle R. Searle', 'Andre I. Khuri'],
+    year: 2017,
+    priority: 'essential',
+    difficulty: 'intermediate',
+    description: 'Comprehensive treatment of matrix algebra concepts essential for understanding statistical methods. Covers matrix operations, eigenvalues, generalized inverses, and applications to statistics. Second edition.',
+    coverImage: '/images/books/searle-matrix-algebra-2017.jpg',
+    isbn: '978-1118935149',
+    tags: ['Matrix Algebra', 'Linear Algebra', 'Mathematics', 'Statistics'],
+    links: [
+      {
+        type: 'amazon',
+        url: 'https://www.amazon.com/Matrix-Algebra-Useful-Statistics-Probability/dp/1118935144/ref=sr_1_3?crid=27H33OZUNMBT6&dib=eyJ2IjoiMSJ9.A8zZP_gxjUtt3moBrD9HkpK53mmZpMow8hOItX_eZNWAped7Cc9suGY8UJ_5PTCnjgDuJU0GSWqHZTh9DBjL3A._P5Bk9uca9yWJTMlYxg5G8k4MyrAWXix5hu5TjXqenE&dib_tag=se&keywords=searle+linear+algebra&qid=1762311091&s=books&sprefix=searle+linear+algebra%2Cstripbooks%2C171&sr=1-3',
+        label: 'Amazon',
+      },
+    ],
+  },
+  {
+    id: 'mitran-linear-algebra',
+    title: 'Linear Algebra for Data Science',
+    authors: ['Sorin Mitran'],
+    priority: 'recommended',
+    difficulty: 'beginner',
+    description: 'Accessible introduction to linear algebra concepts with applications to data science. From University of North Carolina at Chapel Hill. Free PDF available.',
+    coverImage: '/images/books/mitran-linear-algebra.png',
+    tags: ['Linear Algebra', 'Data Science', 'Introduction', 'Free PDF'],
+    links: [
+      {
+        type: 'pdf',
+        url: '/pdfs/books/mathematics/Mitran_Linear_Algebra_Book.pdf',
+        label: 'View PDF',
+      },
+    ],
+  },
+  {
+    id: 'beezer-linear-algebra',
+    title: 'A First Course in Linear Algebra',
+    authors: ['Robert A. Beezer'],
+    priority: 'recommended',
+    difficulty: 'beginner',
+    description: 'Comprehensive first course in linear algebra from University of Puget Sound. Open textbook with clear explanations suitable for beginners. Version 3.50. Free PDF available.',
+    coverImage: '/images/books/beezer-linear-algebra.png',
+    tags: ['Linear Algebra', 'Open Textbook', 'Introduction', 'Free PDF'],
+    links: [
+      {
+        type: 'pdf',
+        url: '/pdfs/books/mathematics/Beezer_Linear_Algebra.pdf',
+        label: 'View PDF',
+      },
+    ],
+  },
 ]
 
 export const allBooks = {

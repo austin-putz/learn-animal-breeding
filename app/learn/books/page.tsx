@@ -24,7 +24,7 @@ const categories = [
     href: '/learn/books/bayesian',
     icon: BarChart3,
     description: 'Bayesian methods and inference for genetic analysis',
-    bookCount: 0,
+    bookCount: 2,
     color: 'green',
   },
   {
@@ -32,7 +32,7 @@ const categories = [
     href: '/learn/books/statistics',
     icon: Calculator,
     description: 'Statistical methods, mixed models, and experimental design',
-    bookCount: 0,
+    bookCount: 1,
     color: 'orange',
   },
   {
@@ -40,7 +40,7 @@ const categories = [
     href: '/learn/books/mathematics',
     icon: Sigma,
     description: 'Linear algebra, matrix theory, and calculus foundations',
-    bookCount: 0,
+    bookCount: 3,
     color: 'red',
   },
 ]

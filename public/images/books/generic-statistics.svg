@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="stats-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="600" fill="url(#stats-gradient)"/>
+  
+  <!-- Bell Curve / Normal Distribution -->
+  <g stroke="#f97316" stroke-width="4" fill="none">
+    <path d="M 50 450 Q 100 350, 150 280 T 250 200 T 350 280 Q 375 350, 400 450" stroke-opacity="0.8" stroke-width="6"/>
+    
+    <!-- Mean line -->
+    <line x1="200" y1="200" x2="200" y2="480" stroke="#ea580c" stroke-width="4" stroke-dasharray="8,4" stroke-opacity="0.6"/>
+    
+    <!-- Standard deviation markers -->
+    <line x1="120" y1="250" x2="120" y2="480" stroke="#f97316" stroke-width="2" stroke-opacity="0.4"/>
+    <line x1="280" y1="250" x2="280" y2="480" stroke="#f97316" stroke-width="2" stroke-opacity="0.4"/>
+    
+    <!-- Axis -->
+    <line x1="50" y1="480" x2="350" y2="480" stroke="#f97316" stroke-width="3" stroke-opacity="0.7"/>
+  </g>
+  
+  <!-- Data points / scatter -->
+  <g fill="#f97316" opacity="0.5">
+    <circle cx="150" cy="380" r="4"/>
+    <circle cx="180" cy="350" r="4"/>
+    <circle cx="200" cy="320" r="4"/>
+    <circle cx="220" cy="350" r="4"/>
+    <circle cx="250" cy="380" r="4"/>
+    <circle cx="170" cy="400" r="4"/>
+    <circle cx="230" cy="400" r="4"/>
+    <circle cx="190" cy="370" r="4"/>
+    <circle cx="210" cy="370" r="4"/>
+  </g>
+  
+  <!-- Greek letters for statistics -->
+  <text x="200" y="510" font-family="Arial, sans-serif" font-size="32" fill="#f97316" text-anchor="middle" opacity="0.7">
+    μ, σ²
+  </text>
+  
+  <!-- Title Text -->
+  <text x="200" y="120" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#f97316" text-anchor="middle" opacity="0.8">
+    Statistics
+  </text>
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="28" font-weight="normal" fill="#ea580c" text-anchor="middle" opacity="0.7">
+    Linear Models
+  </text>
+</svg>
