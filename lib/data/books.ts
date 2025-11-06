@@ -247,7 +247,7 @@ export const quantitativeGeneticsBooks: BookCardProps[] = [
     priority: 'essential',
     difficulty: 'intermediate',
     description: 'The foundational textbook for quantitative genetics. Classic introduction covering fundamental principles of inheritance, heritability, selection response, and breeding theory.',
-    coverImage: '/images/books/generic-dna.svg',
+    coverImage: '/images/books/falconer-mackay-1996.jpg',
     tags: ['Quantitative Genetics', 'Heritability', 'Selection', 'Classic'],
     links: [
       {
@@ -265,7 +265,7 @@ export const quantitativeGeneticsBooks: BookCardProps[] = [
     priority: 'essential',
     difficulty: 'advanced',
     description: '2nd edition of the famous Lynch and Walsh (1998) book on quantitative genetics. Comprehensive modern treatment of evolutionary quantitative genetics.',
-    coverImage: '/images/books/generic-dna.svg',
+    coverImage: '/images/books/walsh-lynch.jpg',
     tags: ['Quantitative Genetics', 'Evolution', 'Advanced'],
     links: [
       {
@@ -283,7 +283,7 @@ export const quantitativeGeneticsBooks: BookCardProps[] = [
     priority: 'recommended',
     difficulty: 'advanced',
     description: 'Classic book to learn mathematics associated with quantitative genetics. Rigorous treatment of theory and methods. First edition of Walsh and Lynch (2018).',
-    coverImage: '/images/books/generic-dna.svg',
+    coverImage: '/images/books/lynch-walsh.jpg',
     tags: ['Quantitative Genetics', 'Mathematics', 'Theory'],
     links: [
       {
@@ -300,13 +300,40 @@ export const quantitativeGeneticsBooks: BookCardProps[] = [
     priority: 'recommended',
     difficulty: 'intermediate',
     description: 'Open source textbook (Creative Commons license) on population and quantitative genetics. Available freely on GitHub. 3rd edition.',
-    coverImage: '/images/books/generic-dna.svg',
+    coverImage: '/images/books/coop-quantitative-genetics.png',
     tags: ['Quantitative Genetics', 'Population Genetics', 'Open Source'],
     links: [
+      {
+        type: 'pdf',
+        url: '/pdfs/books/quantitative-genetics/Coop_Population_and_Quantitative_Genetics.pdf',
+        label: 'View PDF',
+      },
       {
         type: 'github',
         url: 'https://github.com/cooplab/popgen-notes',
         label: 'GitHub Repository',
+      },
+    ],
+  },
+  {
+    id: 'suza-quant-genetics-plants',
+    title: 'Quantitative Genetics for Plant Breeding',
+    authors: ['Walter Suza', 'Kendall Lamkey', 'William Beavis', 'Katherine Espinosa', 'Mark Newell', 'Anthony Assibi Mahama'],
+    priority: 'recommended',
+    difficulty: 'intermediate',
+    description: 'Open access textbook on quantitative genetics from Iowa State University Digital Press. While focused on plant breeding, covers fundamental quantitative genetics principles applicable to all species. Free PDF available.',
+    coverImage: '/images/books/suza-quantitative-genetics-plants.png',
+    tags: ['Quantitative Genetics', 'Plant Breeding', 'Open Access', 'Iowa State'],
+    links: [
+      {
+        type: 'pdf',
+        url: '/pdfs/books/quantitative-genetics/Suza_Quantitative_Genetics_Plants.pdf',
+        label: 'View PDF',
+      },
+      {
+        type: 'external',
+        url: 'https://open.umn.edu/opentextbooks/textbooks/quantitative-genetics-for-plant-breeding',
+        label: 'Open Textbook Library',
       },
     ],
   },
