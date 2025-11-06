@@ -62,6 +62,9 @@ export function Header() {
                 <Link href="/resources/skills" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
                   💡 Technical Skills
                 </Link>
+                <Link href="/resources/consulting" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                  🏢 Consulting
+                </Link>
                 <Link href="/resources/journals" className="block px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
                   📰 Journals
                 </Link>
