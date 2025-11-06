@@ -294,6 +294,285 @@ export default function JournalsPage() {
                 </p>
               </div>
             </a>
+
+            {/* Animal */}
+            <a
+              href="https://www.cambridge.org/core/journals/animal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950 dark:to-pink-900 border-2 border-rose-200 dark:border-rose-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-rose-600 dark:text-rose-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Animal
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Cambridge
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Animal
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Premier journal for animal science with strong genetics and breeding sections
+                </p>
+              </div>
+            </a>
+
+            {/* Livestock Science */}
+            <a
+              href="https://www.sciencedirect.com/journal/livestock-science"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-950 dark:to-gray-900 border-2 border-slate-200 dark:border-slate-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Livestock Science
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Elsevier
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Livestock Science
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Covers livestock genetics, breeding, and production systems
+                </p>
+              </div>
+            </a>
+
+            {/* Animal Genetics */}
+            <a
+              href="https://onlinelibrary.wiley.com/journal/13652052"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-fuchsia-50 to-pink-100 dark:from-fuchsia-950 dark:to-pink-900 border-2 border-fuchsia-200 dark:border-fuchsia-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-fuchsia-600 dark:text-fuchsia-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Animal Genetics
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Wiley
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Animal Genetics
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Specifically focused on animal genetics and molecular genetics
+                </p>
+              </div>
+            </a>
+
+            {/* Frontiers in Genetics */}
+            <a
+              href="https://www.frontiersin.org/journals/genetics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-lime-50 to-green-100 dark:from-lime-950 dark:to-green-900 border-2 border-lime-200 dark:border-lime-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-lime-600 dark:text-lime-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Frontiers in Genetics
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Open Access
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Frontiers in Genetics
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Has dedicated Livestock Genomics section, growing in popularity
+                </p>
+              </div>
+            </a>
+
+            {/* BMC Genomics */}
+            <a
+              href="https://bmcgenomics.biomedcentral.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-950 dark:to-teal-900 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      BMC Genomics
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Open Access
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  BMC Genomics
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Publishes significant animal genomics and breeding research
+                </p>
+              </div>
+            </a>
+
+            {/* Heredity */}
+            <a
+              href="https://www.nature.com/hdy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950 dark:to-amber-900 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Heredity
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Nature
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Heredity
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Covers quantitative genetics, evolution, and breeding applications
+                </p>
+              </div>
+            </a>
+
+            {/* PLoS Genetics */}
+            <a
+              href="https://journals.plos.org/plosgenetics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-cyan-50 to-blue-100 dark:from-cyan-950 dark:to-blue-900 border-2 border-cyan-200 dark:border-cyan-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      PLoS Genetics
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Open Access
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  PLoS Genetics
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  General genetics journal that includes animal genetics work
+                </p>
+              </div>
+            </a>
+
+            {/* Journal of Heredity */}
+            <a
+              href="https://academic.oup.com/jhered"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950 dark:to-purple-900 border-2 border-violet-200 dark:border-violet-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Journal of Heredity
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Oxford
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Journal of Heredity
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Covers genetics including animal breeding applications
+                </p>
+              </div>
+            </a>
+
+            {/* Animal Biotechnology */}
+            <a
+              href="https://www.tandfonline.com/journals/labt20"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-stone-50 to-neutral-100 dark:from-stone-950 dark:to-neutral-900 border-2 border-stone-200 dark:border-stone-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                    <BookOpen className="w-6 h-6 text-stone-600 dark:text-stone-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      Animal Biotechnology
+                    </h3>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
+                      Taylor & Francis
+                    </p>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-stone-600 dark:text-stone-400" />
+                </div>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
+                  Animal Biotechnology
+                </p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                  Focuses on genetics and breeding technology applications
+                </p>
+              </div>
+            </a>
           </div>
         </section>
 
