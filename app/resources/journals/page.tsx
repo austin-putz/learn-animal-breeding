@@ -300,7 +300,7 @@ export default function JournalsPage() {
               href="https://www.cambridge.org/core/journals/animal"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950 dark:to-pink-900 border-2 border-rose-200 dark:border-rose-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950 dark:to-rose-900 border-2 border-pink-200 dark:border-pink-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-3">
@@ -331,12 +331,12 @@ export default function JournalsPage() {
               href="https://www.sciencedirect.com/journal/livestock-science"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-950 dark:to-gray-900 border-2 border-slate-200 dark:border-slate-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-gradient-to-br from-teal-50 to-cyan-100 dark:from-teal-950 dark:to-cyan-900 border-2 border-teal-200 dark:border-teal-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+                    <BookOpen className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -346,7 +346,7 @@ export default function JournalsPage() {
                       Elsevier
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  <ExternalLink className="w-4 h-4 text-teal-600 dark:text-teal-400" />
                 </div>
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
                   Livestock Science
@@ -362,12 +362,12 @@ export default function JournalsPage() {
               href="https://onlinelibrary.wiley.com/journal/13652052"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-fuchsia-50 to-pink-100 dark:from-fuchsia-950 dark:to-pink-900 border-2 border-fuchsia-200 dark:border-fuchsia-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950 dark:to-purple-900 border-2 border-violet-200 dark:border-violet-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-fuchsia-600 dark:text-fuchsia-400" />
+                    <BookOpen className="w-6 h-6 text-violet-600 dark:text-violet-400" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -377,7 +377,7 @@ export default function JournalsPage() {
                       Wiley
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" />
+                  <ExternalLink className="w-4 h-4 text-violet-600 dark:text-violet-400" />
                 </div>
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
                   Animal Genetics
@@ -486,12 +486,12 @@ export default function JournalsPage() {
               href="https://journals.plos.org/plosgenetics/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-cyan-50 to-blue-100 dark:from-cyan-950 dark:to-blue-900 border-2 border-cyan-200 dark:border-cyan-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-gradient-to-br from-sky-50 to-blue-100 dark:from-sky-950 dark:to-blue-900 border-2 border-sky-200 dark:border-sky-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                    <BookOpen className="w-6 h-6 text-sky-600 dark:text-sky-400" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -501,7 +501,7 @@ export default function JournalsPage() {
                       Open Access
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                  <ExternalLink className="w-4 h-4 text-sky-600 dark:text-sky-400" />
                 </div>
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
                   PLoS Genetics
@@ -517,12 +517,12 @@ export default function JournalsPage() {
               href="https://academic.oup.com/jhered"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950 dark:to-purple-900 border-2 border-violet-200 dark:border-violet-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-gradient-to-br from-fuchsia-50 to-pink-100 dark:from-fuchsia-950 dark:to-pink-900 border-2 border-fuchsia-200 dark:border-fuchsia-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                    <BookOpen className="w-6 h-6 text-fuchsia-600 dark:text-fuchsia-400" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -532,7 +532,7 @@ export default function JournalsPage() {
                       Oxford
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                  <ExternalLink className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" />
                 </div>
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
                   Journal of Heredity
@@ -548,12 +548,12 @@ export default function JournalsPage() {
               href="https://www.tandfonline.com/journals/labt20"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-stone-50 to-neutral-100 dark:from-stone-950 dark:to-neutral-900 border-2 border-stone-200 dark:border-stone-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-950 dark:to-amber-900 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-3">
                   <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-stone-600 dark:text-stone-400" />
+                    <BookOpen className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -563,7 +563,7 @@ export default function JournalsPage() {
                       Taylor & Francis
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-stone-600 dark:text-stone-400" />
+                  <ExternalLink className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
                 </div>
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
                   Animal Biotechnology
