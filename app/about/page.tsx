@@ -18,47 +18,48 @@ export default function AboutPage() {
       </header>
 
       {/* Image Showcase Section */}
-      <section className="mb-12">
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Main Profile Photo - Larger */}
-          <div className="md:col-span-1">
-            <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden shadow-xl border-4 border-primary-200 dark:border-primary-800">
-              <Image
-                src="/images/about/austin-putz.jpg"
-                alt="Austin Putz"
-                fill
-                className="object-cover"
-                priority
-              />
+      <section className="mb-12 space-y-6">
+        {/* Main Profile Photo - Top Center */}
+        <div className="flex justify-center">
+          <div className="rounded-lg overflow-hidden shadow-xl border-4 border-primary-200 dark:border-primary-800">
+            <Image
+              src="/images/about/austin-putz.jpg"
+              alt="Austin Putz"
+              width={300}
+              height={375}
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Supporting Images - Side by Side */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Hendrix Meeting Photo */}
+          <div className="relative rounded-lg overflow-hidden shadow-lg border-2 border-blue-200 dark:border-blue-800">
+            <Image
+              src="/images/about/austin-hendrix-meeting.jpg"
+              alt="Austin presenting at Hendrix Genetics meeting"
+              width={600}
+              height={400}
+              className="object-cover w-full h-auto"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+              <p className="text-white text-sm font-medium">Presenting at Hendrix Genetics</p>
             </div>
           </div>
 
-          {/* Supporting Images */}
-          <div className="md:col-span-2 grid grid-rows-2 gap-6">
-            {/* Hendrix Meeting Photo */}
-            <div className="relative h-[192px] rounded-lg overflow-hidden shadow-lg border-2 border-blue-200 dark:border-blue-800">
-              <Image
-                src="/images/about/austin-hendrix-meeting.jpg"
-                alt="Austin presenting at Hendrix Genetics meeting"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p className="text-white text-sm font-medium">Presenting at Hendrix Genetics</p>
-              </div>
-            </div>
-
-            {/* ANS Award Photo */}
-            <div className="relative h-[192px] rounded-lg overflow-hidden shadow-lg border-2 border-amber-200 dark:border-amber-800">
-              <Image
-                src="/images/about/austin-ans-award.png"
-                alt="Austin receiving American Society of Animal Science award"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p className="text-white text-sm font-medium">ASAS Award Recipient</p>
-              </div>
+          {/* ANS Award Photo */}
+          <div className="relative rounded-lg overflow-hidden shadow-lg border-2 border-amber-200 dark:border-amber-800">
+            <Image
+              src="/images/about/austin-ans-award.png"
+              alt="Austin receiving American Society of Animal Science award"
+              width={600}
+              height={400}
+              className="object-cover w-full h-auto"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+              <p className="text-white text-sm font-medium">ASAS Award Recipient</p>
             </div>
           </div>
         </div>
