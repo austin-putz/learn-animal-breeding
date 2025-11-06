@@ -1,4 +1,4 @@
-import { BookOpen, Search, Users, Twitter, Linkedin, ExternalLink } from 'lucide-react'
+import { BookOpen, Search, Users, Twitter, Linkedin, ExternalLink, Database, Library, GraduationCap } from 'lucide-react'
 
 export default function JournalsPage() {
   return (
@@ -100,6 +100,228 @@ export default function JournalsPage() {
                   Network with professionals and follow research updates
                 </p>
                 <ExternalLink className="w-4 h-4 text-blue-700 dark:text-blue-400" />
+              </div>
+            </a>
+          </div>
+        </section>
+
+        {/* Academic Search Databases */}
+        <section>
+          <h2 className="text-2xl font-bold mb-6 text-center">Academic Search Databases</h2>
+          <p className="text-center text-neutral-600 dark:text-neutral-400 mb-6">
+            Search across millions of academic papers and research articles
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* PubMed */}
+            <a
+              href="https://pubmed.ncbi.nlm.nih.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-950 dark:to-green-900 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Database className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  PubMed
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Free database of biomedical and life sciences literature from NCBI
+                </p>
+                <ExternalLink className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              </div>
+            </a>
+
+            {/* Web of Science */}
+            <a
+              href="https://access.clarivate.com/login?app=wos&alternative=true&shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fmode%3DNextgen%26action%3Dtransfer%26path%3D%252Fwos%26DestApp%3DUA&referrer=mode%3DNextgen%26path%3D%252Fwos%26DestApp%3DUA%26action%3Dtransfer&roaming=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Database className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  Web of Science
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Comprehensive citation database covering all disciplines
+                </p>
+                <ExternalLink className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              </div>
+            </a>
+
+            {/* Scopus */}
+            <a
+              href="https://www.scopus.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950 dark:to-amber-900 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Database className="w-8 h-8 text-orange-600 dark:text-orange-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  Scopus
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Elsevier's abstract and citation database with global research coverage
+                </p>
+                <ExternalLink className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+              </div>
+            </a>
+
+            {/* CORE */}
+            <a
+              href="https://core.ac.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950 dark:to-purple-900 border-2 border-violet-200 dark:border-violet-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Database className="w-8 h-8 text-violet-600 dark:text-violet-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  CORE
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  World's largest collection of open access research papers
+                </p>
+                <ExternalLink className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+              </div>
+            </a>
+
+            {/* DOAJ */}
+            <a
+              href="https://doaj.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-lime-50 to-green-100 dark:from-lime-950 dark:to-green-900 border-2 border-lime-200 dark:border-lime-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Database className="w-8 h-8 text-lime-600 dark:text-lime-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  DOAJ
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Directory of Open Access Journals with quality-assessed content
+                </p>
+                <ExternalLink className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+              </div>
+            </a>
+
+            {/* ScienceOpen */}
+            <a
+              href="https://www.scienceopen.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-cyan-50 to-blue-100 dark:from-cyan-950 dark:to-blue-900 border-2 border-cyan-200 dark:border-cyan-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Database className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  ScienceOpen
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Free discovery platform with interactive research network
+                </p>
+                <ExternalLink className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+              </div>
+            </a>
+          </div>
+        </section>
+
+        {/* Institutional Library Resources */}
+        <section>
+          <h2 className="text-2xl font-bold mb-6 text-center">Institutional Library Resources</h2>
+          <p className="text-center text-neutral-600 dark:text-neutral-400 mb-6">
+            Access through your university or institutional library
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* ProQuest */}
+            <a
+              href="https://www.proquest.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950 dark:to-pink-900 border-2 border-rose-200 dark:border-rose-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="absolute top-3 right-3">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-rose-200 dark:bg-rose-900 text-rose-800 dark:text-rose-200 rounded-full">
+                    🔒 Institutional Access
+                  </span>
+                </div>
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Library className="w-8 h-8 text-rose-600 dark:text-rose-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  ProQuest
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Comprehensive dissertations, theses, and academic journal database
+                </p>
+                <ExternalLink className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+              </div>
+            </a>
+
+            {/* JSTOR */}
+            <a
+              href="https://www.jstor.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-amber-50 to-yellow-100 dark:from-amber-950 dark:to-yellow-900 border-2 border-amber-200 dark:border-amber-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="absolute top-3 right-3">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
+                    🔒 Institutional Access
+                  </span>
+                </div>
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Library className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  JSTOR
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Digital library of academic journals, books, and primary sources
+                </p>
+                <ExternalLink className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              </div>
+            </a>
+
+            {/* EBSCO */}
+            <a
+              href="https://www.ebsco.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950 dark:to-blue-900 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="absolute top-3 right-3">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-indigo-200 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full">
+                    🔒 Institutional Access
+                  </span>
+                </div>
+                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
+                  <Library className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  EBSCO
+                </h3>
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                  Research databases including Academic Search and Agriculture collections
+                </p>
+                <ExternalLink className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               </div>
             </a>
           </div>
