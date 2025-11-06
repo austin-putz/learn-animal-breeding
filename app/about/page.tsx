@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github, User, Target, Heart, AlertCircle, BookOpen, GraduationCap, Users } from 'lucide-react'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'About',
@@ -10,14 +11,58 @@ export default function AboutPage() {
     <div className="container py-12 max-w-6xl mx-auto">
       {/* Hero Header */}
       <header className="mb-12 text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900 dark:to-primary-800 mb-6">
-          <User className="w-10 h-10 text-primary-600 dark:text-primary-400" />
-        </div>
         <h1 className="text-5xl font-bold mb-4">About</h1>
         <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
           Educational resources for animal breeding and quantitative genetics
         </p>
       </header>
+
+      {/* Image Showcase Section */}
+      <section className="mb-12">
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Main Profile Photo - Larger */}
+          <div className="md:col-span-1">
+            <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden shadow-xl border-4 border-primary-200 dark:border-primary-800">
+              <Image
+                src="/images/about/austin-putz.jpg"
+                alt="Austin Putz"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Supporting Images */}
+          <div className="md:col-span-2 grid grid-rows-2 gap-6">
+            {/* Hendrix Meeting Photo */}
+            <div className="relative h-[192px] rounded-lg overflow-hidden shadow-lg border-2 border-blue-200 dark:border-blue-800">
+              <Image
+                src="/images/about/austin-hendrix-meeting.jpg"
+                alt="Austin presenting at Hendrix Genetics meeting"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p className="text-white text-sm font-medium">Presenting at Hendrix Genetics</p>
+              </div>
+            </div>
+
+            {/* ANS Award Photo */}
+            <div className="relative h-[192px] rounded-lg overflow-hidden shadow-lg border-2 border-amber-200 dark:border-amber-800">
+              <Image
+                src="/images/about/austin-ans-award.png"
+                alt="Austin receiving American Society of Animal Science award"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p className="text-white text-sm font-medium">ASAS Award Recipient</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="space-y-8">
         {/* About Me Section */}
