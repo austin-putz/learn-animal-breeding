@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/Button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { BookOpen, Code, GraduationCap, Library } from 'lucide-react'
+import Link from 'next/link'
 
 export default function HomePage() {
   return (
@@ -34,53 +35,61 @@ export default function HomePage() {
         <section className="py-16 container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Explore Resources</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <BookOpen className="w-12 h-12 text-primary-600 mb-4" />
-                <CardTitle className="text-xl">Books</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  Essential textbooks and references for animal breeding and quantitative genetics.
-                </p>
-              </CardContent>
-            </Card>
+            <Link href="/learn/books">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <BookOpen className="w-12 h-12 text-primary-600 mb-4" />
+                  <CardTitle className="text-xl">Books</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    Essential textbooks and references for animal breeding and quantitative genetics.
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <GraduationCap className="w-12 h-12 text-primary-600 mb-4" />
-                <CardTitle className="text-xl">Course Notes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  University course materials and lecture notes from leading programs.
-                </p>
-              </CardContent>
-            </Card>
+            <Link href="/learn/course-notes">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <GraduationCap className="w-12 h-12 text-primary-600 mb-4" />
+                  <CardTitle className="text-xl">Course Notes</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    University course materials and lecture notes from leading programs.
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <Code className="w-12 h-12 text-primary-600 mb-4" />
-                <CardTitle className="text-xl">Software</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  Industry-standard tools for genetic evaluation and breeding programs.
-                </p>
-              </CardContent>
-            </Card>
+            <Link href="/resources/software">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <Code className="w-12 h-12 text-primary-600 mb-4" />
+                  <CardTitle className="text-xl">Software</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    Industry-standard tools for genetic evaluation and breeding programs.
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <Library className="w-12 h-12 text-primary-600 mb-4" />
-                <CardTitle className="text-xl">Short Courses</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  Intensive workshops and short courses from universities worldwide.
-                </p>
-              </CardContent>
-            </Card>
+            <Link href="/learn/short-courses">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <Library className="w-12 h-12 text-primary-600 mb-4" />
+                  <CardTitle className="text-xl">Short Courses</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    Intensive workshops and short courses from universities worldwide.
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </section>
 
