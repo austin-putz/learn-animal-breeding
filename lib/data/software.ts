@@ -130,7 +130,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     description: 'Base software for MiXBLUP. Solves large mixed model equations efficiently.',
     status: 'paid',
     links: [
-      { type: 'home', url: 'http://www.mtt.fi/met/mmm/mix99/', label: 'Home' },
+      { type: 'home', url: 'https://www.luke.fi/en/services/mix99-solving-large-mixed-model-equations', label: 'Home' },
     ],
     tags: ['Evaluations', 'Mixed Models'],
   },
