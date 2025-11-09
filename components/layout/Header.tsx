@@ -1,16 +1,23 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
-import { BookOpen, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-neutral-950/95 dark:supports-[backdrop-filter]:bg-neutral-950/60">
       <div className="container mx-auto flex h-16 items-center px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 mr-8">
-          <BookOpen className="h-6 w-6 text-primary-600" />
+        <Link href="/" className="flex items-center space-x-3 mr-8">
+          <Image
+            src="/images/general/learn-animal-breeding-logo.png"
+            alt="Learn Animal Breeding Logo"
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
           <span className="font-bold text-xl">Learn Animal Breeding</span>
         </Link>
 

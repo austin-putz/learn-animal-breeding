@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function Footer() {
   return (
@@ -7,7 +8,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="font-bold text-lg mb-4">Learn Animal Breeding</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <Image
+                src="/images/general/learn-animal-breeding-logo.png"
+                alt="Learn Animal Breeding Logo"
+                width={48}
+                height={48}
+                className="h-12 w-12"
+              />
+              <h3 className="font-bold text-lg">Learn Animal Breeding</h3>
+            </div>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
               Comprehensive educational resources for animal breeding, quantitative genetics,
               and breeding program management. Preserving knowledge for the next generation.
