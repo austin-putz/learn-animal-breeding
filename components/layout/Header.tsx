@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Menu } from 'lucide-react'
 
 export function Header() {
@@ -86,6 +87,7 @@ export function Header() {
 
         {/* Right side buttons */}
         <div className="flex items-center space-x-4 ml-auto">
+          <ThemeToggle />
           <Button variant="outline" size="sm" className="hidden md:inline-flex">
             Search
           </Button>

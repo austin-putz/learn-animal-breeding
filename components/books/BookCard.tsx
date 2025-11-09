@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
 import { BookOpen, Download, ExternalLink, Github } from 'lucide-react'
 
 export interface BookLink {
@@ -62,19 +61,19 @@ export function BookCard({
         {priority && (
           <div className="absolute top-2 left-2">
             {priority === 'essential' && (
-              <Badge className="bg-amber-500 text-white border-0">
+              <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-600 text-white shadow-md">
                 ⭐ Essential
-              </Badge>
+              </span>
             )}
             {priority === 'recommended' && (
-              <Badge className="bg-blue-500 text-white border-0">
+              <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-blue-600 text-white shadow-md">
                 👍 Recommended
-              </Badge>
+              </span>
             )}
             {priority === 'supplemental' && (
-              <Badge className="bg-neutral-100 dark:bg-neutral-700">
+              <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-neutral-700 text-white shadow-md">
                 📚 Supplemental
-              </Badge>
+              </span>
             )}
           </div>
         )}
@@ -83,19 +82,19 @@ export function BookCard({
         {difficulty && (
           <div className="absolute top-2 right-2">
             {difficulty === 'beginner' && (
-              <Badge className="bg-green-500 text-white text-xs border-0">
+              <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-green-700 text-white shadow-md">
                 Beginner
-              </Badge>
+              </span>
             )}
             {difficulty === 'intermediate' && (
-              <Badge className="bg-orange-500 text-white text-xs border-0">
+              <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-orange-700 text-white shadow-md">
                 Intermediate
-              </Badge>
+              </span>
             )}
             {difficulty === 'advanced' && (
-              <Badge className="bg-red-500 text-white text-xs border-0">
+              <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-purple-700 text-white shadow-md">
                 Advanced
-              </Badge>
+              </span>
             )}
           </div>
         )}
