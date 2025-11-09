@@ -109,6 +109,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     status: 'paid',
     links: [
       { type: 'home', url: 'http://nce.ads.uga.edu/wiki/doku.php', label: 'Home' },
+      { type: 'download', url: 'https://nce.ads.uga.edu/wiki/doku.php?id=distribution', label: 'Download' },
     ],
     tags: ['Evaluations', 'BLUP', 'Industry'],
   },
