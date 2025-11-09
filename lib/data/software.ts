@@ -269,8 +269,7 @@ export const gwasSoftware: SoftwareTool[] = [
     description: 'Uses EMMAX method. Computationally efficient by dividing the backsolved SNP effects for GWAS.',
     status: 'active',
     links: [
-      { type: 'home', url: 'http://nce.ads.uga.edu/wiki/doku.php', label: 'BLUPF90 Home' },
-      { type: 'manual', url: 'http://nce.ads.uga.edu/wiki/doku.php?id=readme.postgsf90', label: 'Manual' },
+      { type: 'home', url: 'https://nce.ads.uga.edu/wiki/doku.php?id=readme.postgsf90', label: 'Home' },
     ],
     tags: ['GWAS', 'EMMAX', 'BLUPF90'],
   },
