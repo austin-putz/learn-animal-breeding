@@ -154,7 +154,7 @@ export const inbreedingSoftware: SoftwareTool[] = [
     description: 'Likely the most utilized by industry today due to its comprehensive capabilities for mate selection and inbreeding management.',
     status: 'active',
     links: [
-      { type: 'home', url: 'http://matesel.une.edu.au/', label: 'Home' },
+      { type: 'home', url: 'https://www.matesel.com/', label: 'Home' },
     ],
     tags: ['Inbreeding', 'Mate Selection', 'Industry'],
   },
