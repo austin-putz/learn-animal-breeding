@@ -213,8 +213,7 @@ export const genomicProcessingSoftware: SoftwareTool[] = [
     description: 'Similar to calc_grm. Processes genomic data and works with postGSf90 for GWAS.',
     status: 'active',
     links: [
-      { type: 'home', url: 'http://nce.ads.uga.edu/wiki/doku.php', label: 'BLUPF90 Home' },
-      { type: 'manual', url: 'http://nce.ads.uga.edu/wiki/doku.php?id=readme.pregsf90', label: 'Manual' },
+      { type: 'home', url: 'https://nce.ads.uga.edu/wiki/doku.php?id=readme.pregsf90', label: 'Home' },
     ],
     tags: ['Genomic Processing', 'QC', 'BLUPF90'],
   },
