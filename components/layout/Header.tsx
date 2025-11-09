@@ -42,7 +42,9 @@ export function Header() {
                 className="h-8 w-8"
               />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-white">
+            <span className={`text-xl md:text-2xl font-bold transition-colors ${
+              isScrolled ? 'text-white' : 'text-neutral-900 dark:text-white'
+            }`}>
               Learn Animal Breeding
             </span>
           </Link>
@@ -51,7 +53,11 @@ export function Header() {
           <nav className="hidden lg:flex space-x-1 items-center">
             <Link
               href="/"
-              className="px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
+              className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
+                isScrolled
+                  ? 'text-white/90 hover:text-white hover:bg-white/10'
+                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
+              }`}
             >
               Home
             </Link>
@@ -62,7 +68,11 @@ export function Header() {
               onMouseEnter={() => setIsLearnDropdownOpen(true)}
               onMouseLeave={() => setIsLearnDropdownOpen(false)}
             >
-              <button className="px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium flex items-center gap-1">
+              <button className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium flex items-center gap-1 ${
+                isScrolled
+                  ? 'text-white/90 hover:text-white hover:bg-white/10'
+                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
+              }`}>
                 Learn
                 <svg
                   className={`w-4 h-4 transition-transform duration-200 ${isLearnDropdownOpen ? 'rotate-180' : ''}`}
@@ -125,7 +135,11 @@ export function Header() {
               onMouseEnter={() => setIsResourcesDropdownOpen(true)}
               onMouseLeave={() => setIsResourcesDropdownOpen(false)}
             >
-              <button className="px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium flex items-center gap-1">
+              <button className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium flex items-center gap-1 ${
+                isScrolled
+                  ? 'text-white/90 hover:text-white hover:bg-white/10'
+                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
+              }`}>
                 Resources
                 <svg
                   className={`w-4 h-4 transition-transform duration-200 ${isResourcesDropdownOpen ? 'rotate-180' : ''}`}
@@ -177,7 +191,11 @@ export function Header() {
 
             <Link
               href="/blog"
-              className="px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
+              className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
+                isScrolled
+                  ? 'text-white/90 hover:text-white hover:bg-white/10'
+                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
+              }`}
             >
               Blog
             </Link>
@@ -185,7 +203,11 @@ export function Header() {
             {/* About - Highlighted like Williams' Contact */}
             <Link
               href="/about"
-              className="ml-2 px-6 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition-all duration-200 border border-white/20 hover:border-white/40 shadow-lg"
+              className={`ml-2 px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg ${
+                isScrolled
+                  ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40'
+                  : 'bg-primary-100 hover:bg-primary-200 text-primary-900 border border-primary-200 hover:border-primary-300 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20 dark:hover:border-white/40'
+              }`}
             >
               About
             </Link>
@@ -196,7 +218,11 @@ export function Header() {
             <Button
               variant="ghost"
               size="sm"
-              className="hidden md:inline-flex text-white/90 hover:text-white hover:bg-white/10"
+              className={`hidden md:inline-flex ${
+                isScrolled
+                  ? 'text-white/90 hover:text-white hover:bg-white/10'
+                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
+              }`}
             >
               <Search className="h-4 w-4 mr-2" />
               Search
@@ -205,7 +231,11 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-all duration-200"
+              className={`lg:hidden p-2 rounded-lg transition-all duration-200 ${
+                isScrolled
+                  ? 'text-white hover:bg-white/10'
+                  : 'text-neutral-700 hover:bg-neutral-100 dark:text-white dark:hover:bg-white/10'
+              }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
