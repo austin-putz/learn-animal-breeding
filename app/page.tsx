@@ -3,13 +3,25 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { BookOpen, Code, GraduationCap, Library } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HomePage() {
   return (
     <>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-primary-50 to-white dark:from-primary-950 dark:to-neutral-950">
-          <div className="container mx-auto px-4">
+        <section className="relative py-20 bg-gradient-to-b from-primary-50 to-white dark:from-primary-950 dark:to-neutral-950 overflow-hidden">
+          {/* Background Image with Transparency */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/general/hero-background.png"
+              alt="Animal breeding genetics background"
+              fill
+              className="object-cover opacity-20 dark:opacity-10"
+              priority
+            />
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <Badge className="mb-4">Free Educational Resources</Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -34,7 +46,7 @@ export default function HomePage() {
         {/* Quick Links Grid */}
         <section className="py-16 container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Explore Resources</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Link href="/learn/books">
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardHeader>
