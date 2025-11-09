@@ -176,8 +176,8 @@ export const inbreedingSoftware: SoftwareTool[] = [
     description: 'Tool for describing and optimizing selection given a penalty on rate of inbreeding.',
     status: 'active',
     links: [
-      { type: 'home', url: 'http://eva.agrsci.dk/', label: 'Home' },
-      { type: 'paper', url: 'https://www.journalofanimalscience.org/article/S0022-0302(03)73814-9/pdf', label: 'Paper' },
+      { type: 'home', url: 'https://www.nordgen.org/our-work/farm-animals/the-eva-tool/#:~:text=The%20software%20program%20EVA%20has%20been%20developed%20by,more%20about%20the%20program%20and%20its%20importance%20below.', label: 'Home' },
+      { type: 'paper', url: 'https://www.researchgate.net/publication/254781428_EVA_Realized_and_predicted_optimal_genetic_contributions', label: 'Paper' },
     ],
     tags: ['Inbreeding', 'Optimization'],
   },
