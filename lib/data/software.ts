@@ -106,7 +106,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     name: 'BLUPF90',
     developer: 'Ignacy Misztal (UGA)',
     description: 'Also used for running genetic evaluations. Requires license for iteration on data. Long running software used by many companies.',
-    status: 'active',
+    status: 'paid',
     links: [
       { type: 'home', url: 'http://nce.ads.uga.edu/wiki/doku.php', label: 'Home' },
     ],
@@ -117,7 +117,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     name: 'BOLT',
     developer: 'Dan Garrick, Dorian Garrick, Bruce Golden',
     description: 'GPU accelerated software for extremely high performance and/or large scale genetic evaluations and breeding value prediction. Utilised in multiple very large multi-country and multi-breed implementations.',
-    status: 'active',
+    status: 'paid',
     links: [
       { type: 'home', url: 'https://www.helicalco.com/genomic-prediction', label: 'Home' },
     ],
@@ -128,7 +128,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     name: 'Mix99',
     developer: 'Finland',
     description: 'Base software for MiXBLUP. Solves large mixed model equations efficiently.',
-    status: 'active',
+    status: 'paid',
     links: [
       { type: 'home', url: 'http://www.mtt.fi/met/mmm/mix99/', label: 'Home' },
     ],
