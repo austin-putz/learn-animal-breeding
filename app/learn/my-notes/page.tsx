@@ -118,6 +118,30 @@ export default function MyNotesPage() {
                 <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100">Animal Breeding</h3>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
+                {/* Fundamentals of Animal Breeding */}
+                <a
+                  href="https://austin-putz.github.io/fundamentals-of-animal-breeding/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
+                      <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <ExternalLink className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h4 className="text-lg font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    Fundamentals of Animal Breeding: Principles and Practice
+                  </h4>
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+                    Comprehensive textbook for undergraduate students learning animal breeding for the first time
+                  </p>
+                  <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-green-200 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                    📚 In Progress
+                  </span>
+                </a>
+
                 {/* Animal Models */}
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
