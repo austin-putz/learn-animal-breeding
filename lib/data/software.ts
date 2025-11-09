@@ -76,6 +76,16 @@ export const varianceComponentsSoftware: SoftwareTool[] = [
     ],
     tags: ['Variance Components', 'GWAS', 'Genomics'],
   },
+  {
+    id: 'helical-vc',
+    name: 'Helical',
+    description: 'Modern web-based database platform for management and storage of all manner of breeding program data including pedigree, performance, SNP data, and more, and includes a command line toolset for manipulating and processing genomic data for evaluations.',
+    status: 'active',
+    links: [
+      { type: 'home', url: 'https://www.helicalco.com/', label: 'Home' },
+    ],
+    tags: ['Variance Components', 'Database', 'Web Platform'],
+  },
 ]
 
 export const evaluationsSoftware: SoftwareTool[] = [
@@ -95,7 +105,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     id: 'blupf90-eval',
     name: 'BLUPF90',
     developer: 'Ignacy Misztal (UGA)',
-    description: 'Also used for running genetic evaluations. Requires license for iteration on data. Primary choice for USA breeding companies.',
+    description: 'Also used for running genetic evaluations. Requires license for iteration on data. Long running software used by many companies.',
     status: 'active',
     links: [
       { type: 'home', url: 'http://nce.ads.uga.edu/wiki/doku.php', label: 'Home' },
@@ -105,13 +115,13 @@ export const evaluationsSoftware: SoftwareTool[] = [
   {
     id: 'bolt',
     name: 'BOLT',
-    developer: 'Daniel Gianola, Dorian Garrick, Bruce Golden',
-    description: 'Software for genetic evaluations and breeding value prediction.',
+    developer: 'Dan Garrick, Dorian Garrick, Bruce Golden',
+    description: 'GPU accelerated software for extremely high performance and/or large scale genetic evaluations and breeding value prediction. Utilised in multiple very large multi-country and multi-breed implementations.',
     status: 'active',
     links: [
       { type: 'home', url: 'https://www.helicalco.com/genomic-prediction', label: 'Home' },
     ],
-    tags: ['Evaluations', 'BLUP'],
+    tags: ['Evaluations', 'BLUP', 'Commercial'],
   },
   {
     id: 'mix99',
@@ -218,6 +228,16 @@ export const genomicProcessingSoftware: SoftwareTool[] = [
       { type: 'github', url: 'https://github.com/chrchang/plink-ng', label: 'GitHub' },
     ],
     tags: ['Genomic Processing', 'QC', 'Industry Standard'],
+  },
+  {
+    id: 'helical-genomic',
+    name: 'Helical',
+    description: 'Modern web-based database platform for management and storage of all manner of breeding program data including pedigree, performance, SNP data, and more, and includes a command line toolset for manipulating and processing genomic data for evaluations.',
+    status: 'active',
+    links: [
+      { type: 'home', url: 'https://www.helicalco.com/', label: 'Home' },
+    ],
+    tags: ['Genomic Processing', 'Database', 'Web Platform'],
   },
 ]
 
