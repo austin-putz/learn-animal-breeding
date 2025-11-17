@@ -1,4 +1,19 @@
-import { FileText, BookOpen, ExternalLink, Dna, BarChart3 } from 'lucide-react'
+import {
+  FileText,
+  BookOpen,
+  ExternalLink,
+  Dna,
+  BarChart3,
+  Grid3x3,
+  Calculator,
+  GitMerge,
+  GraduationCap,
+  Network,
+  Target,
+  Database,
+  TrendingUp,
+  FlaskConical
+} from 'lucide-react'
 
 export const metadata = {
   title: 'My Notes',
@@ -42,7 +57,7 @@ export default function MyNotesPage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                  <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <Grid3x3 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <ExternalLink className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
@@ -63,7 +78,7 @@ export default function MyNotesPage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                  <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  <Calculator className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <ExternalLink className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
@@ -84,7 +99,7 @@ export default function MyNotesPage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                  <BookOpen className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  <GitMerge className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <ExternalLink className="w-5 h-5 text-purple-600 dark:text-purple-400" />
               </div>
@@ -127,7 +142,7 @@ export default function MyNotesPage() {
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                      <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                     </div>
                     <ExternalLink className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
@@ -146,7 +161,7 @@ export default function MyNotesPage() {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                      <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      <Network className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                     </div>
                     <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
                       Coming Soon
@@ -162,7 +177,7 @@ export default function MyNotesPage() {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                      <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                     </div>
                     <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
                       Coming Soon
@@ -192,7 +207,7 @@ export default function MyNotesPage() {
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                      <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <Database className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <ExternalLink className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
@@ -211,7 +226,7 @@ export default function MyNotesPage() {
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                      <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
                       Coming Soon
@@ -227,7 +242,7 @@ export default function MyNotesPage() {
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                      <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <FlaskConical className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
                       Coming Soon
