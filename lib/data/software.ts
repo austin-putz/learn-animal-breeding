@@ -400,6 +400,7 @@ export const simulationSoftware: SoftwareTool[] = [
     links: [
       { type: 'github', url: 'https://github.com/tpook92/MoBPS', label: 'GitHub' },
       { type: 'paper', url: 'https://academic.oup.com/g3journal/article/10/6/1915/6026396', label: 'Paper' },
+      { type: 'manual', url: 'https://austin-putz.github.io/mobps-manual/', label: 'Manual' },
     ],
     tags: ['Simulation', 'R Package', 'In Development'],
   },
