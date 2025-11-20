@@ -1,6 +1,15 @@
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     remotePatterns: [
       {
@@ -14,4 +23,4 @@ const nextConfig = {
   turbopack: {},
 }
 
-module.exports = nextConfig
+module.exports = withMDX(nextConfig)

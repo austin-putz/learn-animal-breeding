@@ -78,6 +78,76 @@ learn-animal-breeding/
 
 ## 📚 Adding Content
 
+### Adding Blog Posts
+
+The blog uses MDX files for content. To add a new blog post:
+
+1. **Create a new MDX file** in `content/blog/`:
+   ```bash
+   content/blog/YYYY-MM-DD-post-slug.mdx
+   ```
+
+2. **Add frontmatter** at the top of the file:
+   ```markdown
+   ---
+   title: "Your Post Title"
+   description: "Brief description for previews and SEO"
+   publishedAt: "2024-11-20"
+   category: "Data Science"
+   tags: ["tag1", "tag2", "tag3"]
+   featured: false
+   ---
+
+   Your content here in Markdown...
+   ```
+
+3. **Write your content** using Markdown with optional React components
+
+4. **View your post** at: `http://localhost:3000/blog/YYYY-MM-DD-post-slug`
+
+**Available frontmatter fields:**
+- `title` (required): Post title
+- `description` (required): Brief description
+- `publishedAt` (required): Publication date (YYYY-MM-DD)
+- `category` (required): Category name (e.g., "Data Science", "Animal Breeding")
+- `tags` (required): Array of tags
+- `featured` (optional): Set to `true` to feature on blog homepage
+
+**Example blog post structure:**
+```markdown
+---
+title: "Getting Started with Genomic Selection"
+description: "An introduction to genomic selection methods in animal breeding"
+publishedAt: "2024-11-21"
+category: "Animal Breeding"
+tags: ["genomic selection", "GBLUP", "SNP arrays"]
+featured: true
+---
+
+# Getting Started with Genomic Selection
+
+Your introduction here...
+
+## What is Genomic Selection?
+
+Explanation...
+
+## Implementation Steps
+
+1. Step one
+2. Step two
+3. Step three
+
+```r
+# Example R code
+gblup_model <- mmer(...)
+```
+
+## Conclusion
+
+Summary...
+```
+
 ### Adding PDFs
 
 Place your PDF files in the appropriate directory:
@@ -316,6 +386,13 @@ git push                      # Push to remote
 - ✅ Dark mode support
 - ✅ Responsive design
 - ✅ Folder structure for all content types
+- ✅ **Blog system with MDX**
+  - Blog listing page with featured posts
+  - Individual blog post pages
+  - Category badges and tags
+  - Reading time estimates
+  - SEO optimization
+  - First blog post: "Structuring Research Data for AI Analysis"
 
 ### In Progress:
 - 🔨 Books page with sidebar navigation
@@ -323,7 +400,6 @@ git push                      # Push to remote
 - 🔨 Software tools catalog
 - 🔨 PDF viewer component
 - 🔨 Search functionality
-- 🔨 Blog integration with Sanity CMS
 
 ### Planned:
 - 📋 Course notes pages
@@ -335,6 +411,6 @@ git push                      # Push to remote
 
 ---
 
-**Last Updated:** November 1, 2025
+**Last Updated:** November 20, 2024
 **Author:** Austin Putz
 **License:** ISC

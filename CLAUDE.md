@@ -57,20 +57,33 @@ This website addresses the critical shortage of animal breeding education by pro
 - Technical skills guides
 - Software documentation
 
-#### Sanity CMS for Blog
-- **Sanity.io** (Free tier sufficient for starting)
-  - Headless CMS with excellent developer experience
-  - Real-time collaboration
-  - Structured content with custom schemas
-  - Rich text editor with custom blocks
-  - Image optimization and CDN
+#### Blog Content Management
 
-**Blog Features:**
-- Draft/publish workflow
-- Categories and tags
-- Author information
-- Featured images
-- SEO metadata
+**Current Implementation: MDX-based Blog**
+- **Simple file-based system** using MDX files
+  - Perfect for technical content with code examples
+  - Version controlled alongside the codebase
+  - No external dependencies or API calls
+  - Fast build times and optimal performance
+  - Easy to write and maintain
+
+**Blog Features (Implemented):**
+- File-based MDX content in `content/blog/`
+- Frontmatter metadata (title, description, date, category, tags, featured)
+- Automatic reading time calculation
+- Featured post support
+- Category badges and tag system
+- SEO-optimized metadata
+- Dark mode support
+- Syntax-highlighted code blocks
+
+**Alternative: Sanity CMS for Blog (Future Option)**
+- **Sanity.io** (Free tier available)
+  - Headless CMS with visual editor
+  - Real-time collaboration
+  - Draft/publish workflow
+  - Rich text editor
+  - Can be added later if needed
 
 ### Key Libraries
 
@@ -1596,95 +1609,154 @@ export function BookCard({
 </div>
 ```
 
-### Blog
+### Blog (MDX Implementation - COMPLETED ✅)
 
-**Blog listing page:**
+**Implementation Status:** The blog system is fully implemented using MDX files.
+
+**Architecture:**
+- **Content Storage:** MDX files in `content/blog/`
+- **Processing:** Uses `next-mdx-remote/rsc` for server-side rendering
+- **Utilities:** `lib/blog.ts` for reading files and parsing frontmatter
+- **Components:** BlogCard, BlogPost, BlogGrid
+
+**Blog listing page implementation:**
 ```tsx
-<div className="max-w-4xl mx-auto">
-  <header className="mb-12">
-    <h1>Blog</h1>
-    <p>Insights, updates, and thoughts on animal breeding</p>
-  </header>
+// app/blog/page.tsx
+import { BlogGrid } from '@/components/blog/BlogGrid'
+import { getAllPosts } from '@/lib/blog'
 
-  {/* Featured post */}
-  {featuredPost && (
-    <FeaturedBlogCard {...featuredPost} />
-  )}
+export default function BlogPage() {
+  const posts = getAllPosts() // Gets all posts sorted by date
 
-  {/* Categories filter */}
-  <div className="flex gap-2 mb-8">
-    {categories.map(cat => (
-      <Badge key={cat} variant="outline">
-        {cat}
-      </Badge>
-    ))}
-  </div>
+  return (
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <div className="container py-12 max-w-7xl mx-auto px-4">
+        {/* Hero Header */}
+        <header className="mb-12 text-center">
+          <h1 className="text-5xl font-bold mb-4">Blog</h1>
+          <p className="text-xl text-neutral-600 dark:text-neutral-400">
+            Insights on animal breeding, data science, and research methodology
+          </p>
+        </header>
 
-  {/* Blog posts grid */}
-  <div className="grid md:grid-cols-2 gap-8">
-    {posts.map(post => (
-      <BlogCard key={post.slug} {...post} />
-    ))}
-  </div>
-
-  {/* Pagination */}
-  <Pagination currentPage={page} totalPages={totalPages} />
-</div>
-```
-
-**Individual blog post:**
-```tsx
-<article className="max-w-3xl mx-auto">
-  <header className="mb-8">
-    {mainImage && (
-      <Image
-        src={mainImage}
-        alt={title}
-        width={1200}
-        height={630}
-        className="rounded-lg mb-6"
-      />
-    )}
-
-    <div className="flex gap-2 mb-4">
-      {categories.map(cat => (
-        <Badge key={cat}>{cat}</Badge>
-      ))}
-    </div>
-
-    <h1>{title}</h1>
-
-    <div className="flex items-center gap-4 mt-4">
-      {author.image && (
-        <Image
-          src={author.image}
-          alt={author.name}
-          width={48}
-          height={48}
-          className="rounded-full"
-        />
-      )}
-      <div>
-        <p className="font-medium">{author.name}</p>
-        <time className="text-sm text-neutral-600">
-          {publishedAt}
-        </time>
+        {/* Blog Posts Grid - shows featured post prominently */}
+        <BlogGrid posts={posts} showFeatured={true} />
       </div>
     </div>
-  </header>
-
-  {/* Sanity Portable Text content */}
-  <div className="prose dark:prose-invert max-w-none">
-    <PortableText value={body} />
-  </div>
-
-  {/* Share buttons */}
-  <ShareButtons url={url} title={title} />
-
-  {/* Related posts */}
-  <RelatedPosts posts={relatedPosts} />
-</article>
+  )
+}
 ```
+
+**Individual blog post implementation:**
+```tsx
+// app/blog/[slug]/page.tsx
+import { BlogPost } from '@/components/blog/BlogPost'
+import { getPostBySlug, getAllPosts } from '@/lib/blog'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import rehypePrettyCode from 'rehype-pretty-code'
+
+export async function generateStaticParams() {
+  const posts = getAllPosts()
+  return posts.map((post) => ({ slug: post.slug }))
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
+
+  if (!post) notFound()
+
+  return (
+    <BlogPost post={post}>
+      <MDXRemote
+        source={post.content}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [remarkGfm],
+            rehypePlugins: [
+              rehypeSlug,
+              [rehypePrettyCode, { /* theme config */ }],
+              rehypeAutolinkHeadings
+            ]
+          }
+        }}
+      />
+    </BlogPost>
+  )
+}
+```
+
+**Blog utility functions:**
+```typescript
+// lib/blog.ts
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import readingTime from 'reading-time'
+
+export interface BlogPostMetadata {
+  slug: string
+  title: string
+  description: string
+  publishedAt: string
+  category: string
+  tags: string[]
+  featured?: boolean
+  readingTime: string
+}
+
+export function getAllPosts(): BlogPostMetadata[] {
+  const postsDirectory = path.join(process.cwd(), 'content/blog')
+  const fileNames = fs.readdirSync(postsDirectory)
+  const mdxFiles = fileNames.filter(f => f.endsWith('.mdx'))
+
+  const posts = mdxFiles.map(fileName => {
+    const slug = fileName.replace(/\.mdx$/, '')
+    const fullPath = path.join(postsDirectory, fileName)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data, content } = matter(fileContents)
+    const stats = readingTime(content)
+
+    return {
+      slug,
+      ...data,
+      readingTime: stats.text
+    } as BlogPostMetadata
+  })
+
+  return posts.sort((a, b) =>
+    a.publishedAt < b.publishedAt ? 1 : -1
+  )
+}
+
+export function getPostBySlug(slug: string): BlogPost | null {
+  // Implementation to read single post
+}
+```
+
+**Creating a new blog post:**
+
+1. Create file: `content/blog/YYYY-MM-DD-post-slug.mdx`
+2. Add frontmatter:
+```yaml
+---
+title: "Your Post Title"
+description: "Brief description"
+publishedAt: "2024-11-20"
+category: "Data Science"
+tags: ["tag1", "tag2"]
+featured: false
+---
+```
+3. Write content in Markdown
+4. Post automatically appears on blog page
+
+**Existing Blog Posts:**
+- ✅ "Structuring Research Data for AI Analysis: A Practical Guide" (Featured)
+  - 19-minute read
+  - Covers database-first thinking, long vs wide format, three-table approach
+  - Three-document system (DATA.md, EXPERIMENTAL_DESIGN.md, STATS.md)
+  - Real-world examples for pig growth trials
 
 ---
 
@@ -2560,8 +2632,8 @@ This website will serve as a valuable resource for the animal breeding community
 
 ---
 
-**Document Version:** 2.0
-**Last Updated:** 2025-11-01
+**Document Version:** 2.1
+**Last Updated:** 2024-11-20
 **Author:** Claude (Anthropic)
 **For:** Austin Putz - Learn Animal Breeding Platform
 
@@ -2569,7 +2641,41 @@ This website will serve as a valuable resource for the animal breeding community
 
 ## Changelog
 
-### Version 2.0 (2025-11-01)
+### Version 2.1 (2024-11-20)
+
+**Blog System Implementation:**
+- ✅ **Fully functional MDX-based blog system**
+  - File-based content management in `content/blog/`
+  - MDX processing with `next-mdx-remote/rsc`
+  - Blog utility functions (`lib/blog.ts`) for file reading and parsing
+- ✅ **Blog components created:**
+  - `BlogCard` - Post preview cards with metadata
+  - `BlogPost` - Individual post layout with header and formatting
+  - `BlogGrid` - Responsive grid with featured post support
+- ✅ **Blog pages implemented:**
+  - Blog listing page (`/blog`) with featured post display
+  - Dynamic blog post pages (`/blog/[slug]`)
+  - SEO-optimized metadata for all posts
+- ✅ **Features:**
+  - Automatic reading time calculation
+  - Category badges and tag system
+  - Featured post support
+  - Syntax-highlighted code blocks
+  - Dark mode support
+  - Responsive design
+- ✅ **First blog post published:**
+  - "Structuring Research Data for AI Analysis: A Practical Guide"
+  - 19-minute comprehensive guide
+  - Covers database principles, data formats, and documentation strategies
+  - Real-world pig trial examples
+
+**Technical Details:**
+- Installed packages: `@next/mdx`, `next-mdx-remote`, `gray-matter`, `reading-time`, rehype plugins
+- Updated `next.config.js` to support MDX
+- Created `mdx-components.tsx` for custom MDX rendering
+- Fixed Next.js 15+ params Promise handling in dynamic routes
+
+### Version 2.0 (2024-11-01)
 
 **Major Updates:**
 - ✅ Updated book categories: Animal Breeding, Quantitative Genetics, Bayesian, Statistics, Mathematics
@@ -2586,7 +2692,7 @@ This website will serve as a valuable resource for the animal breeding community
 - ✅ Included copyright and legal considerations for PDFs
 - ✅ Added Git LFS guidance for large files
 
-### Version 1.0 (2025-01-31)
+### Version 1.0 (2024-01-31)
 - Initial CLAUDE.md creation
 - Basic project structure and tech stack
 - Core features implementation
