@@ -45,9 +45,9 @@ export function BlogPost({ post, children }: BlogPostProps) {
           <header className="mb-8 pb-8 border-b border-neutral-200 dark:border-neutral-800">
             {/* Category Badge */}
             <div className="flex items-center gap-2 mb-4">
-              <Badge variant="default">{post.category}</Badge>
+              <Badge variant="solid">{post.category}</Badge>
               {post.featured && (
-                <Badge variant="secondary" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                <Badge variant="solid" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
                   Featured
                 </Badge>
               )}

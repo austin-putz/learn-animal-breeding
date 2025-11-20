@@ -62,36 +62,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  const options = {
-    mdxOptions: {
-      remarkPlugins: [remarkGfm, remarkEmoji],
-      rehypePlugins: [
-        rehypeSlug,
-        [
-          rehypePrettyCode,
-          {
-            theme: {
-              dark: 'github-dark',
-              light: 'github-light',
-            },
-            keepBackground: false,
-          },
-        ],
-        [
-          rehypeAutolinkHeadings,
-          {
-            properties: {
-              className: ['anchor'],
-            },
-          },
-        ],
-      ],
-    },
-  }
-
   return (
     <BlogPost post={post}>
-      <MDXRemote source={post.content} options={options} />
+      <MDXRemote
+        source={post.content}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [remarkGfm, remarkEmoji],
+            rehypePlugins: [
+              rehypeSlug,
+              [
+                rehypePrettyCode,
+                {
+                  theme: {
+                    dark: 'github-dark',
+                    light: 'github-light',
+                  },
+                  keepBackground: false,
+                },
+              ],
+              [
+                rehypeAutolinkHeadings,
+                {
+                  properties: {
+                    className: ['anchor'],
+                  },
+                },
+              ],
+            ],
+          },
+        }}
+      />
     </BlogPost>
   )
 }

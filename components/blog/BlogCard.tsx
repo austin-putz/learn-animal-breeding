@@ -22,9 +22,9 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="p-6">
           {/* Category and Featured Badge */}
           <div className="flex items-center gap-2 mb-3">
-            <Badge variant="default">{post.category}</Badge>
+            <Badge variant="solid">{post.category}</Badge>
             {post.featured && (
-              <Badge variant="secondary" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+              <Badge variant="solid" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
                 Featured
               </Badge>
             )}
