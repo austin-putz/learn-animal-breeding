@@ -48,7 +48,7 @@ export default function AboutPage() {
               className="object-cover w-full h-auto"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <p className="text-white text-sm font-medium">Presenting at Hendrix Genetics</p>
+              <p className="text-white text-sm font-medium">Presenting at Hendrix Genetics in 2018</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="relative rounded-lg overflow-hidden shadow-lg border-4 border-primary-200 dark:border-primary-800">
             <Image
               src="/images/about/austin-ans-award.png"
-              alt="Austin receiving American Society of Animal Science award"
+              alt="Austin receiving Animal Science Research Excellence Award in 2018"
               width={600}
               height={400}
               className="object-cover w-full h-auto"
@@ -95,7 +95,7 @@ export default function AboutPage() {
                     className="text-primary-600 dark:text-primary-400 hover:underline font-medium"
                   >
                     Hendrix Genetics Swine
-                  </a>. Austin is also an Affiliate Professor within the{' '}
+                  </a>. I'm also an Affiliate Professor within the{' '}
                   <a
                     href="https://www.ans.iastate.edu/"
                     target="_blank"
@@ -106,10 +106,16 @@ export default function AboutPage() {
                   </a>.
                 </p>
                 <p className="text-lg leading-relaxed">
+				  None of this material represents Hendrix Genetics or Iowa State University. See 
+				  my disclaimer below. 
+                </p>
+                <p className="text-lg leading-relaxed">
                   This website was created during my personal time to address the critical shortage of
-                  animal breeding education resources. With the drastic reduction in animal breeding
+                  animal breeding education resources. Animal breeding has been declining in animal 
+				  science departments for many years. With this drastic reduction in animal breeding
                   faculty and graduate programs, I wanted to create a centralized hub for knowledge
-                  preservation and dissemination.
+                  preservation and dissemination. Over the years, I accrued many resources available online
+				  and thought it would be wise to have one hub to come to for new students. 
                 </p>
               </div>
             </div>
@@ -127,7 +133,11 @@ export default function AboutPage() {
               <p className="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 mb-6">
                 The goal of this platform is to provide free access to educational resources, books,
                 course materials, and software tools for students and professionals in animal breeding
-                and quantitative genetics worldwide.
+                and quantitative genetics worldwide. There is a special focus to provide resources
+				to students in developing nations as they may not have the resources available to buy
+				expensive text books and don't have access to some of the professors here in the USA. 
+				This website should help close the gap and allow anyone to train themselves with few 
+				resources. 
               </p>
 
               {/* Mission Points */}
