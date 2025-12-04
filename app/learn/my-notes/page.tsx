@@ -247,20 +247,28 @@ export default function MyNotesPage() {
                 </a>
 
                 {/* Experimental Design */}
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6">
+                <a
+                  href="https://austin-putz.github.io/experimental-design-book/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
                       <FlaskConical className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
-                      Coming Soon
-                    </span>
+                    <ExternalLink className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
-                  <h4 className="text-lg font-bold mb-2">Experimental Design</h4>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300">
+                  <h4 className="text-lg font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    Experimental Design
+                  </h4>
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
                     Design and analysis of agricultural and breeding experiments
                   </p>
-                </div>
+                  <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-green-200 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                    📚 In Progress
+                  </span>
+                </a>
               </div>
             </div>
           </div>
