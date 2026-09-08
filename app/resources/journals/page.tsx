@@ -1,846 +1,244 @@
-import { BookOpen, Search, Users, Twitter, Linkedin, ExternalLink, Database, Library, GraduationCap } from 'lucide-react'
+import { PageShell } from '@/components/layout/PageShell'
+import { PageHeader } from '@/components/layout/PageHeader'
+import { LinkSection, type LinkRowItem } from '@/components/layout/LinkRow'
+
+export const metadata = {
+  title: 'Journals & Research',
+  description:
+    'Key journals and platforms for staying current with animal breeding and quantitative genetics research.',
+}
+
+const platforms: LinkRowItem[] = [
+  {
+    title: 'Google Scholar',
+    description: 'Search academic papers and follow authors for publication alerts',
+    href: 'https://scholar.google.com/',
+  },
+  {
+    title: 'ResearchGate',
+    description: 'Connect with researchers and access full-text papers',
+    href: 'https://www.researchgate.net/',
+  },
+  {
+    title: 'Twitter / X',
+    description: 'Follow researchers for real-time updates and discussions',
+    href: 'https://twitter.com/',
+  },
+  {
+    title: 'LinkedIn',
+    description: 'Network with professionals and follow research updates',
+    href: 'https://www.linkedin.com/',
+  },
+]
+
+const databases: LinkRowItem[] = [
+  {
+    title: 'PubMed',
+    description: 'Free database of biomedical and life sciences literature from NCBI',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/',
+  },
+  {
+    title: 'Web of Science',
+    description: 'Comprehensive citation database covering all disciplines',
+    href: 
+      'https://access.clarivate.com/login?app=wos&alternative=true&shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fmode%3DNextgen%26action%3Dtransfer%26path%3D%252Fwos%26DestApp%3DUA&referrer=mode%3DNextgen%26path%3D%252Fwos%26DestApp%3DUA%26action%3Dtransfer&roaming=true',
+  },
+  {
+    title: 'Scopus',
+    description: "Elsevier's abstract and citation database with global research coverage",
+    href: 'https://www.scopus.com/',
+  },
+  {
+    title: 'CORE',
+    description: "World's largest collection of open access research papers",
+    href: 'https://core.ac.uk/',
+  },
+  {
+    title: 'DOAJ',
+    description: 'Directory of Open Access Journals with quality-assessed content',
+    href: 'https://doaj.org/',
+  },
+  {
+    title: 'ScienceOpen',
+    description: 'Free discovery platform with interactive research network',
+    href: 'https://www.scienceopen.com/',
+  },
+]
+
+const libraries: LinkRowItem[] = [
+  {
+    title: 'ProQuest',
+    description: 'Comprehensive dissertations, theses, and academic journal database',
+    href: 'https://www.proquest.com/',
+  },
+  {
+    title: 'JSTOR',
+    description: 'Digital library of academic journals, books, and primary sources',
+    href: 'https://www.jstor.org/',
+  },
+  {
+    title: 'EBSCO',
+    description: 'Research databases including Academic Search and Agriculture collections',
+    href: 'https://www.ebsco.com/',
+  },
+]
+
+const journals: LinkRowItem[] = [
+  {
+    title: 'Genetics Selection Evolution',
+    status: 'GSE · Open Access',
+    description:
+      'BMC. Leading open-access journal in quantitative genetics and animal breeding.',
+    href: 'https://gsejournal.biomedcentral.com/',
+  },
+  {
+    title: 'Journal of Animal Science',
+    status: 'JAS · ASAS',
+    description: 'Premier journal for animal science research and genetics.',
+    href: 'https://academic.oup.com/jas',
+  },
+  {
+    title: 'Journal of Animal Breeding and Genetics',
+    status: 'JABG · Wiley',
+    description: 'Specialized in breeding methodologies and genetic improvement.',
+    href: 'https://onlinelibrary.wiley.com/journal/14390388',
+  },
+  {
+    title: 'Genes, Genomes, Genetics',
+    status: 'G3 · Open Access',
+    description: 'GSA. Broad coverage of genetics including quantitative genetics.',
+    href: 'https://academic.oup.com/g3journal',
+  },
+  {
+    title: 'Genetics',
+    status: 'GSA',
+    description: 'Flagship journal of the Genetics Society of America.',
+    href: 'https://academic.oup.com/genetics',
+  },
+  {
+    title: 'Journal of Dairy Science',
+    status: 'JDS · ADSA',
+    description: 'Leading journal for dairy cattle genetics and breeding.',
+    href: 'https://www.journalofdairyscience.org/',
+  },
+  {
+    title: 'Animal',
+    status: 'Cambridge',
+    description:
+      'Premier journal for animal science with strong genetics and breeding sections.',
+    href: 'https://www.cambridge.org/core/journals/animal',
+  },
+  {
+    title: 'Livestock Science',
+    status: 'Elsevier',
+    description: 'Covers livestock genetics, breeding, and production systems.',
+    href: 'https://www.sciencedirect.com/journal/livestock-science',
+  },
+  {
+    title: 'Animal Genetics',
+    status: 'Wiley',
+    description: 'Specifically focused on animal genetics and molecular genetics.',
+    href: 'https://onlinelibrary.wiley.com/journal/13652052',
+  },
+  {
+    title: 'Frontiers in Genetics',
+    status: 'Open Access',
+    description: 'Has a dedicated Livestock Genomics section, growing in popularity.',
+    href: 'https://www.frontiersin.org/journals/genetics',
+  },
+  {
+    title: 'BMC Genomics',
+    status: 'Open Access',
+    description: 'Publishes significant animal genomics and breeding research.',
+    href: 'https://bmcgenomics.biomedcentral.com/',
+  },
+  {
+    title: 'Heredity',
+    status: 'Nature',
+    description: 'Covers quantitative genetics, evolution, and breeding applications.',
+    href: 'https://www.nature.com/hdy/',
+  },
+  {
+    title: 'PLoS Genetics',
+    status: 'Open Access',
+    description: 'General genetics journal that includes animal genetics work.',
+    href: 'https://journals.plos.org/plosgenetics/',
+  },
+  {
+    title: 'Journal of Heredity',
+    status: 'Oxford',
+    description: 'Covers genetics including animal breeding applications.',
+    href: 'https://academic.oup.com/jhered',
+  },
+  {
+    title: 'Animal Biotechnology',
+    status: 'Taylor & Francis',
+    description: 'Focuses on genetics and breeding technology applications.',
+    href: 'https://www.tandfonline.com/journals/labt20',
+  },
+]
+
+const tips = [
+  {
+    label: 'Email Alerts',
+    text: 'Subscribe to journal mailing lists for table of contents alerts. Most journals offer free email notifications when new issues are published.',
+  },
+  {
+    label: 'Follow Researchers',
+    text: "Use Google Scholar to follow key researchers. You'll receive alerts when they publish new papers or when their work is cited.",
+  },
+  {
+    label: 'Social Media',
+    text: 'Many researchers share their work on Twitter/X and LinkedIn. Follow them for preprints, conference updates, and research discussions.',
+  },
+  {
+    label: 'University Access',
+    text: 'Check your university library for journal subscriptions. Many institutions provide free access to paywalled journals through VPN or library systems.',
+  },
+]
 
 export default function JournalsPage() {
   return (
-    <div className="container py-12 max-w-6xl mx-auto">
-      {/* Header */}
-      <header className="mb-12 text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900 mb-4">
-          <BookOpen className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+    <PageShell>
+      <PageHeader
+        breadcrumb={[{ label: 'Resources' }, { label: 'Journals' }]}
+        title="Journals & Research"
+        description="Key journals and platforms for staying current with animal breeding and quantitative genetics research"
+      />
+
+      <LinkSection label="Find Papers & Follow Research" items={platforms} cols={2} />
+
+      <LinkSection
+        label="Academic Search Databases"
+        description="Search across millions of academic papers and research articles"
+        items={databases}
+        cols={3}
+      />
+
+      <LinkSection
+        label="Institutional Library Resources"
+        description="Access through your university or institutional library"
+        items={libraries}
+        cols={3}
+      />
+
+      <LinkSection
+        label="Key Journals in Animal Breeding & Genetics"
+        items={journals}
+        cols={2}
+      />
+
+      <section className="mt-14 border-t border-line pt-7">
+        <h2 className="group-label mb-5">Tips for Staying Current</h2>
+        <div className="grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
+          {tips.map((tip) => (
+            <div key={tip.label} className="flex flex-col gap-1.5 border-t-2 border-moss pt-3">
+              <span className="font-display text-sm font-semibold">{tip.label}</span>
+              <p className="text-[13px] leading-relaxed text-muted">{tip.text}</p>
+            </div>
+          ))}
         </div>
-        <h1 className="text-4xl font-bold mb-4">Journals & Research</h1>
-        <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-          Key journals and platforms for staying current with animal breeding and quantitative genetics research
-        </p>
-      </header>
-
-      <div className="space-y-12">
-        {/* Research Platforms */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6 text-center">Find Papers & Follow Research</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Google Scholar */}
-            <a
-              href="https://scholar.google.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Search className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  Google Scholar
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Search academic papers and follow authors for publication alerts
-                </p>
-                <ExternalLink className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              </div>
-            </a>
-
-            {/* ResearchGate */}
-            <a
-              href="https://www.researchgate.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950 dark:to-teal-900 border-2 border-teal-200 dark:border-teal-800 rounded-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Users className="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  ResearchGate
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Connect with researchers and access full-text papers
-                </p>
-                <ExternalLink className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-              </div>
-            </a>
-
-            {/* Twitter/X */}
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-950 dark:to-sky-900 border-2 border-sky-200 dark:border-sky-800 rounded-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Twitter className="w-8 h-8 text-sky-600 dark:text-sky-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  Twitter / X
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Follow researchers for real-time updates and discussions
-                </p>
-                <ExternalLink className="w-4 h-4 text-sky-600 dark:text-sky-400" />
-              </div>
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 border-2 border-blue-300 dark:border-indigo-800 rounded-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Linkedin className="w-8 h-8 text-blue-700 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  LinkedIn
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Network with professionals and follow research updates
-                </p>
-                <ExternalLink className="w-4 h-4 text-blue-700 dark:text-blue-400" />
-              </div>
-            </a>
-          </div>
-        </section>
-
-        {/* Academic Search Databases */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6 text-center">Academic Search Databases</h2>
-          <p className="text-center text-neutral-600 dark:text-neutral-400 mb-6">
-            Search across millions of academic papers and research articles
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* PubMed */}
-            <a
-              href="https://pubmed.ncbi.nlm.nih.gov/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-950 dark:to-green-900 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Database className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  PubMed
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Free database of biomedical and life sciences literature from NCBI
-                </p>
-                <ExternalLink className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              </div>
-            </a>
-
-            {/* Web of Science */}
-            <a
-              href="https://access.clarivate.com/login?app=wos&alternative=true&shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fmode%3DNextgen%26action%3Dtransfer%26path%3D%252Fwos%26DestApp%3DUA&referrer=mode%3DNextgen%26path%3D%252Fwos%26DestApp%3DUA%26action%3Dtransfer&roaming=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Database className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  Web of Science
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Comprehensive citation database covering all disciplines
-                </p>
-                <ExternalLink className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              </div>
-            </a>
-
-            {/* Scopus */}
-            <a
-              href="https://www.scopus.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950 dark:to-amber-900 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Database className="w-8 h-8 text-orange-600 dark:text-orange-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  Scopus
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Elsevier's abstract and citation database with global research coverage
-                </p>
-                <ExternalLink className="w-4 h-4 text-orange-600 dark:text-orange-400" />
-              </div>
-            </a>
-
-            {/* CORE */}
-            <a
-              href="https://core.ac.uk/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950 dark:to-purple-900 border-2 border-violet-200 dark:border-violet-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Database className="w-8 h-8 text-violet-600 dark:text-violet-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  CORE
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  World's largest collection of open access research papers
-                </p>
-                <ExternalLink className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-              </div>
-            </a>
-
-            {/* DOAJ */}
-            <a
-              href="https://doaj.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-lime-50 to-green-100 dark:from-lime-950 dark:to-green-900 border-2 border-lime-200 dark:border-lime-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Database className="w-8 h-8 text-lime-600 dark:text-lime-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  DOAJ
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Directory of Open Access Journals with quality-assessed content
-                </p>
-                <ExternalLink className="w-4 h-4 text-lime-600 dark:text-lime-400" />
-              </div>
-            </a>
-
-            {/* ScienceOpen */}
-            <a
-              href="https://www.scienceopen.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-cyan-50 to-blue-100 dark:from-cyan-950 dark:to-blue-900 border-2 border-cyan-200 dark:border-cyan-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Database className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  ScienceOpen
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Free discovery platform with interactive research network
-                </p>
-                <ExternalLink className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-              </div>
-            </a>
-          </div>
-        </section>
-
-        {/* Institutional Library Resources */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6 text-center">Institutional Library Resources</h2>
-          <p className="text-center text-neutral-600 dark:text-neutral-400 mb-6">
-            Access through your university or institutional library
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* ProQuest */}
-            <a
-              href="https://www.proquest.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950 dark:to-pink-900 border-2 border-rose-200 dark:border-rose-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-rose-200 dark:bg-rose-900 text-rose-800 dark:text-rose-200 rounded-full">
-                    🔒 Institutional Access
-                  </span>
-                </div>
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Library className="w-8 h-8 text-rose-600 dark:text-rose-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  ProQuest
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Comprehensive dissertations, theses, and academic journal database
-                </p>
-                <ExternalLink className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-              </div>
-            </a>
-
-            {/* JSTOR */}
-            <a
-              href="https://www.jstor.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-amber-50 to-yellow-100 dark:from-amber-950 dark:to-yellow-900 border-2 border-amber-200 dark:border-amber-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full">
-                    🔒 Institutional Access
-                  </span>
-                </div>
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Library className="w-8 h-8 text-amber-600 dark:text-amber-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  JSTOR
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Digital library of academic journals, books, and primary sources
-                </p>
-                <ExternalLink className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              </div>
-            </a>
-
-            {/* EBSCO */}
-            <a
-              href="https://www.ebsco.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950 dark:to-blue-900 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-indigo-200 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full">
-                    🔒 Institutional Access
-                  </span>
-                </div>
-                <div className="p-4 bg-white dark:bg-neutral-900 rounded-full mb-4 shadow-lg">
-                  <Library className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  EBSCO
-                </h3>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-                  Research databases including Academic Search and Agriculture collections
-                </p>
-                <ExternalLink className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              </div>
-            </a>
-          </div>
-        </section>
-
-        {/* Key Journals */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6 text-center">Key Journals in Animal Breeding & Genetics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* GSE */}
-            <a
-              href="https://gsejournal.biomedcentral.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950 dark:to-emerald-900 border-2 border-green-200 dark:border-green-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-green-600 dark:text-green-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      GSE
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Open Access
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-green-600 dark:text-green-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Genetics Selection Evolution
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  BMC - Leading open-access journal in quantitative genetics and animal breeding
-                </p>
-              </div>
-            </a>
-
-            {/* JAS */}
-            <a
-              href="https://academic.oup.com/jas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-red-50 to-orange-100 dark:from-red-950 dark:to-orange-900 border-2 border-red-200 dark:border-red-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-red-600 dark:text-red-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      JAS
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      ASAS Journal
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-red-600 dark:text-red-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Journal of Animal Science
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Premier journal for animal science research and genetics
-                </p>
-              </div>
-            </a>
-
-            {/* JABG */}
-            <a
-              href="https://onlinelibrary.wiley.com/journal/14390388"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-900 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      JABG
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Wiley
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Journal of Animal Breeding and Genetics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Specialized in breeding methodologies and genetic improvement
-                </p>
-              </div>
-            </a>
-
-            {/* G3 */}
-            <a
-              href="https://academic.oup.com/g3journal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-amber-50 to-yellow-100 dark:from-amber-950 dark:to-yellow-900 border-2 border-amber-200 dark:border-amber-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      G3
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Open Access
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Genes | Genomes | Genetics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  GSA - Broad coverage of genetics including quantitative genetics
-                </p>
-              </div>
-            </a>
-
-            {/* Genetics */}
-            <a
-              href="https://academic.oup.com/genetics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-950 dark:to-cyan-900 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Genetics
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      GSA Journal
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Genetics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Flagship journal of Genetics Society of America
-                </p>
-              </div>
-            </a>
-
-            {/* JDS */}
-            <a
-              href="https://www.journalofdairyscience.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950 dark:to-blue-900 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      JDS
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      ADSA Journal
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Journal of Dairy Science
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Leading journal for dairy cattle genetics and breeding
-                </p>
-              </div>
-            </a>
-
-            {/* Animal */}
-            <a
-              href="https://www.cambridge.org/core/journals/animal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950 dark:to-rose-900 border-2 border-pink-200 dark:border-pink-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-rose-600 dark:text-rose-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Animal
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Cambridge
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Animal
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Premier journal for animal science with strong genetics and breeding sections
-                </p>
-              </div>
-            </a>
-
-            {/* Livestock Science */}
-            <a
-              href="https://www.sciencedirect.com/journal/livestock-science"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-teal-50 to-cyan-100 dark:from-teal-950 dark:to-cyan-900 border-2 border-teal-200 dark:border-teal-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Livestock Science
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Elsevier
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Livestock Science
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Covers livestock genetics, breeding, and production systems
-                </p>
-              </div>
-            </a>
-
-            {/* Animal Genetics */}
-            <a
-              href="https://onlinelibrary.wiley.com/journal/13652052"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950 dark:to-purple-900 border-2 border-violet-200 dark:border-violet-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Animal Genetics
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Wiley
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Animal Genetics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Specifically focused on animal genetics and molecular genetics
-                </p>
-              </div>
-            </a>
-
-            {/* Frontiers in Genetics */}
-            <a
-              href="https://www.frontiersin.org/journals/genetics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-lime-50 to-green-100 dark:from-lime-950 dark:to-green-900 border-2 border-lime-200 dark:border-lime-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-lime-600 dark:text-lime-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Frontiers in Genetics
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Open Access
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-lime-600 dark:text-lime-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Frontiers in Genetics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Has dedicated Livestock Genomics section, growing in popularity
-                </p>
-              </div>
-            </a>
-
-            {/* BMC Genomics */}
-            <a
-              href="https://bmcgenomics.biomedcentral.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-950 dark:to-teal-900 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      BMC Genomics
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Open Access
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  BMC Genomics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Publishes significant animal genomics and breeding research
-                </p>
-              </div>
-            </a>
-
-            {/* Heredity */}
-            <a
-              href="https://www.nature.com/hdy/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950 dark:to-amber-900 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Heredity
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Nature
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-orange-600 dark:text-orange-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Heredity
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Covers quantitative genetics, evolution, and breeding applications
-                </p>
-              </div>
-            </a>
-
-            {/* PLoS Genetics */}
-            <a
-              href="https://journals.plos.org/plosgenetics/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-sky-50 to-blue-100 dark:from-sky-950 dark:to-blue-900 border-2 border-sky-200 dark:border-sky-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-sky-600 dark:text-sky-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      PLoS Genetics
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Open Access
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-sky-600 dark:text-sky-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  PLoS Genetics
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  General genetics journal that includes animal genetics work
-                </p>
-              </div>
-            </a>
-
-            {/* Journal of Heredity */}
-            <a
-              href="https://academic.oup.com/jhered"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-fuchsia-50 to-pink-100 dark:from-fuchsia-950 dark:to-pink-900 border-2 border-fuchsia-200 dark:border-fuchsia-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-fuchsia-600 dark:text-fuchsia-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Journal of Heredity
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Oxford
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Journal of Heredity
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Covers genetics including animal breeding applications
-                </p>
-              </div>
-            </a>
-
-            {/* Animal Biotechnology */}
-            <a
-              href="https://www.tandfonline.com/journals/labt20"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-950 dark:to-amber-900 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-3 bg-white dark:bg-neutral-900 rounded-lg shadow-md">
-                    <BookOpen className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      Animal Biotechnology
-                    </h3>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-2">
-                      Taylor & Francis
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
-                </div>
-                <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2 flex-1">
-                  Animal Biotechnology
-                </p>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                  Focuses on genetics and breeding technology applications
-                </p>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        {/* Tips Section */}
-        <section className="bg-neutral-50 dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-800 p-8">
-          <h2 className="text-xl font-semibold mb-4">Tips for Staying Current</h2>
-          <div className="grid md:grid-cols-2 gap-6 text-sm text-neutral-700 dark:text-neutral-300">
-            <div>
-              <h3 className="font-semibold mb-2 text-neutral-900 dark:text-neutral-100">
-                📧 Email Alerts
-              </h3>
-              <p>
-                Subscribe to journal mailing lists for table of contents alerts. Most journals offer
-                free email notifications when new issues are published.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2 text-neutral-900 dark:text-neutral-100">
-                🔔 Follow Researchers
-              </h3>
-              <p>
-                Use Google Scholar to follow key researchers. You'll receive alerts when they publish
-                new papers or when their work is cited.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2 text-neutral-900 dark:text-neutral-100">
-                🌐 Social Media
-              </h3>
-              <p>
-                Many researchers share their work on Twitter/X and LinkedIn. Follow them for
-                preprints, conference updates, and research discussions.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2 text-neutral-900 dark:text-neutral-100">
-                📚 University Access
-              </h3>
-              <p>
-                Check your university library for journal subscriptions. Many institutions provide
-                free access to paywalled journals through VPN or library systems.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
+      </section>
+    </PageShell>
   )
 }
