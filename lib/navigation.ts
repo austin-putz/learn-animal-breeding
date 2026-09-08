@@ -2,6 +2,7 @@ import { allBooks } from '@/lib/data/books'
 import { allSoftware } from '@/lib/data/software'
 import { allCourseNotes } from '@/lib/data/course-notes'
 import { allShortCourses } from '@/lib/data/short-courses'
+import { rpubNotes, allMyBooks } from '@/lib/data/my-work'
 
 export interface RailItem {
   name: string
@@ -138,5 +139,20 @@ export const shortCourseCategories: RailItem[] = [
     href: '/learn/short-courses/une-australia',
     count: allShortCourses['une-australia'].length,
     description: 'Armidale Genetics Summer Course.',
+  },
+]
+
+export const myWorkCategories: RailItem[] = [
+  {
+    name: 'My Books',
+    href: '/learn/my-books',
+    count: allMyBooks.length,
+    description: 'Long-form Quarto books on animal breeding and statistics, written and published openly.',
+  },
+  {
+    name: 'My Notes',
+    href: '/learn/my-notes',
+    count: rpubNotes.length,
+    description: 'Short interactive R tutorials on relationship matrices, BLUP and genomic prediction.',
   },
 ]
