@@ -1,403 +1,230 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button'
+import { usePathname } from 'next/navigation'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
-import { Menu, Search } from 'lucide-react'
+import { ChevronDown, Menu, X } from 'lucide-react'
+
+const learnLinks = [
+  { href: '/learn/books', label: 'Books' },
+  { href: '/learn/course-notes', label: 'Course Notes' },
+  { href: '/learn/my-notes', label: 'My Notes' },
+  { href: '/learn/short-courses', label: 'Short Courses' },
+  { href: '/learn/youtube', label: 'YouTube Resources' },
+]
+
+const resourceLinks = [
+  { href: '/resources/software', label: 'Software Tools' },
+  { href: '/resources/skills', label: 'Technical Skills' },
+  { href: '/resources/consulting', label: 'Consulting' },
+  { href: '/resources/journals', label: 'Journals' },
+]
+
+const navLink =
+  'rounded-md px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-sunken hover:text-ink'
+
+function Dropdown({
+  label,
+  links,
+  basePath,
+}: {
+  label: string
+  links: { href: string; label: string }[]
+  basePath: string
+}) {
+  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const isActive = pathname.startsWith(basePath)
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current)
+    }
+  }, [])
+
+  const show = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpen(true)
+  }
+
+  // A short delay keeps the panel open while the pointer crosses the gap.
+  const hide = () => {
+    closeTimer.current = setTimeout(() => setOpen(false), 120)
+  }
+
+  return (
+    <div className="relative" onMouseEnter={show} onMouseLeave={hide}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className={`flex items-center gap-1 ${navLink} ${isActive ? 'text-ink' : ''}`}
+      >
+        {label}
+        <ChevronDown
+          className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
+          strokeWidth={2}
+        />
+      </button>
+
+      {open && (
+        <div className="absolute left-0 top-full w-60 pt-2">
+          <div className="overflow-hidden rounded-lg border border-line bg-surface p-1.5 shadow-lg">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`block rounded-md px-3 py-2 text-sm transition-colors hover:bg-sunken ${
+                  pathname === link.href ? 'font-medium text-moss' : 'text-muted hover:text-ink'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isLearnDropdownOpen, setIsLearnDropdownOpen] = useState(false)
-  const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false)
+  const [openSection, setOpenSection] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close the mobile menu on navigation.
+  useEffect(() => {
+    setIsMenuOpen(false)
+    setOpenSection(null)
+  }, [pathname])
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'glass-dark shadow-2xl py-3'
-          : 'bg-transparent py-5'
+      className={`fixed inset-x-0 top-0 z-50 bg-paper/90 backdrop-blur-md transition-colors ${
+        isScrolled ? 'border-b border-line' : 'border-b border-transparent'
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="bg-white rounded-lg p-1.5 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-              <Image
-                src="/images/general/learn-animal-breeding-logo.png"
-                alt="Learn Animal Breeding Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8"
-              />
-            </div>
-            <span className={`text-xl md:text-2xl font-bold transition-colors ${
-              isScrolled ? 'text-white' : 'text-neutral-900 dark:text-white'
-            }`}>
+      <div className="container max-w-[1400px]">
+        <div className="flex h-16 items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src="/images/general/learn-animal-breeding-logo.png"
+              alt=""
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-sm"
+            />
+            <span className="font-display text-[15px] font-semibold tracking-tight md:text-base">
               Learn Animal Breeding
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-1 items-center">
-            <Link
-              href="/"
-              className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
-                isScrolled
-                  ? 'text-white/90 hover:text-white hover:bg-white/10'
-                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
-              }`}
-            >
+          <nav className="hidden items-center gap-0.5 lg:flex">
+            <Link href="/" className={`${navLink} ${pathname === '/' ? 'text-ink' : ''}`}>
               Home
             </Link>
-
-            {/* Learn Dropdown */}
-            <div
-              className="relative group"
-              onMouseEnter={() => setIsLearnDropdownOpen(true)}
-              onMouseLeave={() => setIsLearnDropdownOpen(false)}
-            >
-              <button className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium flex items-center gap-1 ${
-                isScrolled
-                  ? 'text-white/90 hover:text-white hover:bg-white/10'
-                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
-              }`}>
-                Learn
-                <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${isLearnDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {isLearnDropdownOpen && (
-                <div className="absolute top-full left-0 pt-2 w-64">
-                  <div className="bg-primary-900/95 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up border border-white/20">
-                    <div className="p-2">
-                      <Link
-                        href="/learn/books"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">📚</span>
-                        <span className="font-medium">Books</span>
-                      </Link>
-                      <Link
-                        href="/learn/course-notes"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">📝</span>
-                        <span className="font-medium">Course Notes</span>
-                      </Link>
-                      <Link
-                        href="/learn/my-notes"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">✍️</span>
-                        <span className="font-medium">My Notes</span>
-                      </Link>
-                      <Link
-                        href="/learn/short-courses"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">🎓</span>
-                        <span className="font-medium">Short Courses</span>
-                      </Link>
-                      <Link
-                        href="/learn/youtube"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">🎥</span>
-                        <span className="font-medium">YouTube Resources</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Resources Dropdown */}
-            <div
-              className="relative group"
-              onMouseEnter={() => setIsResourcesDropdownOpen(true)}
-              onMouseLeave={() => setIsResourcesDropdownOpen(false)}
-            >
-              <button className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium flex items-center gap-1 ${
-                isScrolled
-                  ? 'text-white/90 hover:text-white hover:bg-white/10'
-                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
-              }`}>
-                Resources
-                <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${isResourcesDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {isResourcesDropdownOpen && (
-                <div className="absolute top-full left-0 pt-2 w-64">
-                  <div className="bg-primary-900/95 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up border border-white/20">
-                    <div className="p-2">
-                      <Link
-                        href="/resources/software"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">🛠️</span>
-                        <span className="font-medium">Software Tools</span>
-                      </Link>
-                      <Link
-                        href="/resources/skills"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">💡</span>
-                        <span className="font-medium">Technical Skills</span>
-                      </Link>
-                      <Link
-                        href="/resources/consulting"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">🏢</span>
-                        <span className="font-medium">Consulting</span>
-                      </Link>
-                      <Link
-                        href="/resources/journals"
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      >
-                        <span className="text-xl">📰</span>
-                        <span className="font-medium">Journals</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
+            <Dropdown label="Learn" links={learnLinks} basePath="/learn" />
+            <Dropdown label="Resources" links={resourceLinks} basePath="/resources" />
             <Link
               href="/blog"
-              className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
-                isScrolled
-                  ? 'text-white/90 hover:text-white hover:bg-white/10'
-                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
-              }`}
+              className={`${navLink} ${pathname.startsWith('/blog') ? 'text-ink' : ''}`}
             >
               Blog
             </Link>
-
-            {/* About - Highlighted like Williams' Contact */}
             <Link
               href="/about"
-              className={`ml-2 px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg ${
-                isScrolled
-                  ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40'
-                  : 'bg-primary-100 hover:bg-primary-200 text-primary-900 border border-primary-200 hover:border-primary-300 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20 dark:hover:border-white/40'
-              }`}
+              className={`${navLink} ${pathname === '/about' ? 'text-ink' : ''}`}
             >
               About
             </Link>
           </nav>
 
-          {/* Right side buttons */}
-          <div className="flex items-center gap-3 ml-auto lg:ml-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              className={`hidden md:inline-flex ${
-                isScrolled
-                  ? 'text-white/90 hover:text-white hover:bg-white/10'
-                  : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 dark:text-white/90 dark:hover:text-white dark:hover:bg-white/10'
-              }`}
-            >
-              <Search className="h-4 w-4 mr-2" />
-              Search
-            </Button>
+          <div className="flex items-center gap-2">
             <ThemeToggle />
-
-            {/* Mobile Menu Button */}
             <button
-              className={`lg:hidden p-2 rounded-lg transition-all duration-200 ${
-                isScrolled
-                  ? 'text-white hover:bg-white/10'
-                  : 'text-neutral-700 hover:bg-neutral-100 dark:text-white dark:hover:bg-white/10'
-              }`}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              type="button"
+              className="rounded-md p-2 text-muted transition-colors hover:bg-sunken hover:text-ink lg:hidden"
+              onClick={() => setIsMenuOpen((v) => !v)}
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {isMenuOpen ? (
+                <X className="h-5 w-5" strokeWidth={1.75} />
+              ) : (
+                <Menu className="h-5 w-5" strokeWidth={1.75} />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <nav className="lg:hidden mt-4 bg-primary-900/95 backdrop-blur-lg rounded-2xl p-4 space-y-1 animate-fade-in-up border border-white/20">
-            <Link
-              href="/"
-              className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
+          <nav className="mb-4 flex flex-col rounded-lg border border-line bg-surface p-2 lg:hidden">
+            <Link href="/" className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-sunken">
               Home
             </Link>
 
-            {/* Learn Dropdown Mobile */}
-            <div>
-              <button
-                onClick={() => setIsLearnDropdownOpen(!isLearnDropdownOpen)}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-              >
-                Learn
-                <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${isLearnDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            {[
+              { key: 'learn', label: 'Learn', links: learnLinks },
+              { key: 'resources', label: 'Resources', links: resourceLinks },
+            ].map((section) => (
+              <div key={section.key}>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenSection((s) => (s === section.key ? null : section.key))
+                  }
+                  aria-expanded={openSection === section.key}
+                  className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium hover:bg-sunken"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {isLearnDropdownOpen && (
-                <div className="mt-1 ml-4 space-y-1">
-                  <Link
-                    href="/learn/books"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">📚</span>
-                    Books
-                  </Link>
-                  <Link
-                    href="/learn/course-notes"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">📝</span>
-                    Course Notes
-                  </Link>
-                  <Link
-                    href="/learn/my-notes"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">✍️</span>
-                    My Notes
-                  </Link>
-                  <Link
-                    href="/learn/short-courses"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">🎓</span>
-                    Short Courses
-                  </Link>
-                  <Link
-                    href="/learn/youtube"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">🎥</span>
-                    YouTube Resources
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Resources Dropdown Mobile */}
-            <div>
-              <button
-                onClick={() => setIsResourcesDropdownOpen(!isResourcesDropdownOpen)}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-              >
-                Resources
-                <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${isResourcesDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {isResourcesDropdownOpen && (
-                <div className="mt-1 ml-4 space-y-1">
-                  <Link
-                    href="/resources/software"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">🛠️</span>
-                    Software Tools
-                  </Link>
-                  <Link
-                    href="/resources/skills"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">💡</span>
-                    Technical Skills
-                  </Link>
-                  <Link
-                    href="/resources/consulting"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">🏢</span>
-                    Consulting
-                  </Link>
-                  <Link
-                    href="/resources/journals"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="text-lg">📰</span>
-                    Journals
-                  </Link>
-                </div>
-              )}
-            </div>
+                  {section.label}
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      openSection === section.key ? 'rotate-180' : ''
+                    }`}
+                    strokeWidth={2}
+                  />
+                </button>
+                {openSection === section.key && (
+                  <div className="ml-3 flex flex-col border-l border-line pl-2">
+                    {section.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="rounded-md px-3 py-2 text-sm text-muted transition-colors hover:bg-sunken hover:text-ink"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
 
             <Link
               href="/blog"
-              className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-              onClick={() => setIsMenuOpen(false)}
+              className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-sunken"
             >
               Blog
             </Link>
             <Link
               href="/about"
-              className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-              onClick={() => setIsMenuOpen(false)}
+              className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-sunken"
             >
               About
             </Link>
-            <button
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Search className="h-4 w-4" />
-              Search
-            </button>
           </nav>
         )}
       </div>

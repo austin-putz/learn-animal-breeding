@@ -114,6 +114,32 @@ module.exports = {
       maxWidth: {
         prose: '65ch',
       },
+
+      // Used by @tailwindcss/typography for rendered MDX. Mapped onto the same
+      // tokens as the rest of the site so posts need no `dark:` variants.
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'rgb(var(--muted))',
+            '--tw-prose-headings': 'rgb(var(--ink))',
+            '--tw-prose-lead': 'rgb(var(--muted))',
+            '--tw-prose-links': 'rgb(var(--moss))',
+            '--tw-prose-bold': 'rgb(var(--ink))',
+            '--tw-prose-counters': 'rgb(var(--faint))',
+            '--tw-prose-bullets': 'rgb(var(--faint))',
+            '--tw-prose-hr': 'rgb(var(--line))',
+            '--tw-prose-quotes': 'rgb(var(--muted))',
+            '--tw-prose-quote-borders': 'rgb(var(--moss))',
+            '--tw-prose-captions': 'rgb(var(--faint))',
+            '--tw-prose-code': 'rgb(var(--ink))',
+            '--tw-prose-pre-code': 'rgb(var(--ink))',
+            '--tw-prose-pre-bg': 'rgb(var(--sunken))',
+            '--tw-prose-th-borders': 'rgb(var(--line))',
+            '--tw-prose-td-borders': 'rgb(var(--line))',
+            maxWidth: 'none',
+          },
+        },
+      },
     },
   },
   plugins: [

@@ -1,6 +1,5 @@
-import { Calendar, Clock, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import { Badge } from '@/components/ui/Badge'
 import { BlogPostMetadata, formatDate } from '@/lib/blog'
 
 interface BlogPostProps {
@@ -10,100 +9,57 @@ interface BlogPostProps {
 
 export function BlogPost({ post, children }: BlogPostProps) {
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
-      <div className="container max-w-4xl mx-auto px-4 py-8">
-        {/* Back Button */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Blog</span>
-        </Link>
-
-        {/* Breadcrumbs */}
-        <nav className="text-sm text-neutral-500 dark:text-neutral-500 mb-6">
-          <ol className="flex items-center gap-2">
-            <li>
-              <Link href="/" className="hover:text-primary-600 dark:hover:text-primary-400">
-                Home
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link href="/blog" className="hover:text-primary-600 dark:hover:text-primary-400">
-                Blog
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-neutral-700 dark:text-neutral-300">{post.title}</li>
-          </ol>
+    <div className="container max-w-[1400px] py-10 md:py-14">
+      <div className="mx-auto max-w-[76ch]">
+        <nav aria-label="Breadcrumb" className="meta mb-8">
+          <Link href="/" className="transition-colors hover:text-ink">
+            Home
+          </Link>
+          <span className="px-2 text-line-strong">/</span>
+          <Link href="/blog" className="transition-colors hover:text-ink">
+            Blog
+          </Link>
         </nav>
 
-        {/* Article Header */}
-        <article className="bg-white dark:bg-neutral-900 rounded-lg shadow-lg p-8 md:p-12">
-          <header className="mb-8 pb-8 border-b border-neutral-200 dark:border-neutral-800">
-            {/* Category Badge */}
-            <div className="flex items-center gap-2 mb-4">
-              <Badge variant="solid">{post.category}</Badge>
-              {post.featured && (
-                <Badge variant="solid" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                  Featured
-                </Badge>
-              )}
+        <article>
+          <header className="border-b border-line pb-8">
+            <div className="meta-sm mb-4 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span className="text-moss">{post.category}</span>
+              <span className="text-line-strong">/</span>
+              <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+              <span className="text-line-strong">/</span>
+              <span>{post.readingTime}</span>
             </div>
 
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            <h1 className="text-balance text-3xl font-bold leading-[1.12] tracking-tight md:text-[2.5rem]">
               {post.title}
             </h1>
 
-            {/* Description */}
-            <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-6">
+            <p className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-muted">
               {post.description}
             </p>
 
-            {/* Meta Information */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500 dark:text-neutral-500">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <time dateTime={post.publishedAt}>
-                  {formatDate(post.publishedAt)}
-                </time>
+            {post.tags.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-x-3.5 gap-y-1">
+                {post.tags.map((tag) => (
+                  <span key={tag} className="meta-sm">
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>{post.readingTime}</span>
-              </div>
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-3 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-full text-neutral-700 dark:text-neutral-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            )}
           </header>
 
-          {/* Article Content */}
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            {children}
-          </div>
+          <div className="prose mt-10 max-w-none">{children}</div>
         </article>
 
-        {/* Footer Navigation */}
-        <div className="mt-8 flex justify-center">
+        <div className="mt-14 border-t border-line pt-7">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 text-[13px] font-medium text-muted transition-colors hover:text-ink"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>View All Posts</span>
+            <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+            View all posts
           </Link>
         </div>
       </div>

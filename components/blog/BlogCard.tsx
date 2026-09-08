@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import { Calendar, Clock } from 'lucide-react'
-import { Badge } from '@/components/ui/Badge'
-import { Card } from '@/components/ui/Card'
+import { ArrowRight } from 'lucide-react'
 import { BlogPostMetadata, formatDate } from '@/lib/blog'
 
 interface BlogCardProps {
@@ -10,74 +8,57 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, featured = false }: BlogCardProps) {
-  const cardClasses = featured
-    ? 'md:col-span-2 lg:col-span-3'
-    : ''
-
   return (
-    <Link href={`/blog/${post.slug}`}>
-      <Card
-        className={`h-full group hover:shadow-xl transition-all duration-300 cursor-pointer ${cardClasses}`}
+    <Link
+      href={`/blog/${post.slug}`}
+      className={`group flex flex-col gap-3 border-t border-line py-6 ${
+        featured ? 'border-t-2 border-moss' : ''
+      }`}
+    >
+      <div className="meta-sm flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span className={featured ? 'text-moss' : undefined}>{post.category}</span>
+        <span className="text-line-strong">/</span>
+        <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+        <span className="text-line-strong">/</span>
+        <span>{post.readingTime}</span>
+      </div>
+
+      <h3
+        className={`font-display font-semibold leading-tight tracking-tight transition-colors group-hover:text-moss ${
+          featured ? 'text-2xl md:text-[1.75rem]' : 'text-lg'
+        }`}
       >
-        <div className="p-6">
-          {/* Category and Featured Badge */}
-          <div className="flex items-center gap-2 mb-3">
-            <Badge variant="solid">{post.category}</Badge>
-            {post.featured && (
-              <Badge variant="solid" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                Featured
-              </Badge>
-            )}
-          </div>
+        {post.title}
+      </h3>
 
-          {/* Title */}
-          <h3
-            className={`font-bold mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors ${
-              featured ? 'text-3xl' : 'text-xl'
-            }`}
-          >
-            {post.title}
-          </h3>
+      <p
+        className={`text-muted ${
+          featured ? 'max-w-[62ch] text-[15px] leading-relaxed' : 'text-[13.5px] leading-relaxed'
+        }`}
+      >
+        {post.description}
+      </p>
 
-          {/* Description */}
-          <p
-            className={`text-neutral-600 dark:text-neutral-400 mb-4 ${
-              featured ? 'text-lg' : 'text-sm'
-            }`}
-          >
-            {post.description}
-          </p>
-
-          {/* Meta Information */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500 dark:text-neutral-500 mb-4">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              <span>{post.readingTime}</span>
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2">
-            {post.tags.slice(0, featured ? 5 : 3).map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-md text-neutral-700 dark:text-neutral-300"
-              >
-                {tag}
-              </span>
-            ))}
-            {post.tags.length > (featured ? 5 : 3) && (
-              <span className="text-xs px-2 py-1 text-neutral-500">
-                +{post.tags.length - (featured ? 5 : 3)} more
-              </span>
-            )}
-          </div>
+      {post.tags.length > 0 && (
+        <div className="flex flex-wrap gap-x-3.5 gap-y-1">
+          {post.tags.slice(0, featured ? 5 : 3).map((tag) => (
+            <span key={tag} className="meta-sm">
+              {tag}
+            </span>
+          ))}
+          {post.tags.length > (featured ? 5 : 3) && (
+            <span className="meta-sm">+{post.tags.length - (featured ? 5 : 3)} more</span>
+          )}
         </div>
-      </Card>
+      )}
+
+      <span className="mt-1 inline-flex items-center gap-1.5 text-[12.5px] font-medium text-moss">
+        Read post
+        <ArrowRight
+          className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+          strokeWidth={1.75}
+        />
+      </span>
     </Link>
   )
 }
