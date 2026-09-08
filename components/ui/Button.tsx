@@ -23,64 +23,49 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     download,
     ...props
   }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 disabled:pointer-events-none disabled:opacity-50'
+    const baseStyles =
+      'inline-flex items-center justify-center gap-2 rounded-md font-medium whitespace-nowrap transition-colors active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:opacity-50'
 
     const variants = {
-      primary: 'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800',
-      secondary: 'bg-neutral-200 text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700',
-      outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-950',
-      ghost: 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800',
-      link: 'text-primary-600 underline-offset-4 hover:underline',
+      primary: 'bg-moss text-moss-on hover:bg-moss-hover',
+      secondary: 'bg-sunken text-ink hover:bg-line',
+      outline: 'border border-line-strong text-ink hover:border-faint hover:bg-sunken',
+      ghost: 'text-muted hover:bg-sunken hover:text-ink',
+      link: 'text-moss underline-offset-4 hover:underline',
     }
 
     const sizes = {
-      sm: 'h-9 px-3 text-sm',
-      md: 'h-11 px-5 text-base',
-      lg: 'h-13 px-7 text-lg',
+      sm: 'h-8 px-3 text-[12.5px]',
+      md: 'h-10 px-4 text-sm',
+      lg: 'h-11 px-6 text-[15px]',
     }
 
     const classes = clsx(
       baseStyles,
       variants[variant],
-      sizes[size],
+      variant === 'link' ? 'h-auto p-0' : sizes[size],
       className
     )
 
     if (href) {
-      // Use regular anchor tag for download links
+      // Regular anchor for downloads, Next Link for navigation.
       if (download !== undefined) {
         return (
-          <a
-            href={href}
-            className={classes}
-            target={target}
-            rel={rel}
-            download={download}
-          >
+          <a href={href} className={classes} target={target} rel={rel} download={download}>
             {children}
           </a>
         )
       }
 
-      // Use Next.js Link for navigation
       return (
-        <Link
-          href={href}
-          className={classes}
-          target={target}
-          rel={rel}
-        >
+        <Link href={href} className={classes} target={target} rel={rel}>
           {children}
         </Link>
       )
     }
 
     return (
-      <button
-        ref={ref}
-        className={classes}
-        {...props}
-      >
+      <button ref={ref} className={classes} {...props}>
         {children}
       </button>
     )
