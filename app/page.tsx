@@ -7,6 +7,7 @@ import { allSoftware } from '@/lib/data/software'
 import { allCourseNotes } from '@/lib/data/course-notes'
 import { allShortCourses } from '@/lib/data/short-courses'
 import { allMyBooks } from '@/lib/data/my-work'
+import { getAllPosts } from '@/lib/blog'
 
 export const metadata = {
   title: 'Learn Animal Breeding',
@@ -34,6 +35,14 @@ const sections = [
     unit: 'books',
     unitSingular: 'book',
     description: 'Open textbooks I am writing on animal breeding and statistics, free to read online.',
+  },
+  {
+    href: '/blog',
+    name: 'Blog',
+    count: getAllPosts().length,
+    unit: 'posts',
+    unitSingular: 'post',
+    description: 'Writing on animal breeding, data science and research methodology.',
   },
   {
     href: '/learn/course-notes',
