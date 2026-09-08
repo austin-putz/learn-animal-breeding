@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { CategoryList } from '@/components/layout/CategoryList'
+import { CategoryTiles } from '@/components/layout/CategoryTiles'
 import { bookCategories } from '@/lib/navigation'
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function BooksPage() {
         description="Curated collection of essential textbooks, course materials, and references for animal breeding, quantitative genetics, and related fields. Free PDFs available for public domain works."
       />
 
-      <CategoryList items={bookCategories} unit="books" unitSingular="book" />
+      <CategoryTiles items={bookCategories} unit="books" unitSingular="book" cols={3} />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Resources</h2>

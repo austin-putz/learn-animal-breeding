@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { CategoryList } from '@/components/layout/CategoryList'
+import { CategoryTiles } from '@/components/layout/CategoryTiles'
 import { Colophon } from '@/components/layout/Colophon'
 import { softwareCategories } from '@/lib/navigation'
 import { FileText } from 'lucide-react'
@@ -39,7 +39,7 @@ export default function SoftwarePage() {
         </div>
       </div>
 
-      <CategoryList items={softwareCategories} unit="tools" unitSingular="tool" />
+      <CategoryTiles items={softwareCategories} unit="tools" unitSingular="tool" cols={5} />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Tools</h2>

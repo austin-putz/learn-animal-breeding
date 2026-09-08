@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { CategoryList } from '@/components/layout/CategoryList'
+import { CategoryTiles } from '@/components/layout/CategoryTiles'
 import { courseNoteCategories } from '@/lib/navigation'
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function CourseNotesPage() {
         description="Comprehensive lecture notes and course materials from leading universities. Free PDF downloads available for educational use."
       />
 
-      <CategoryList items={courseNoteCategories} unit="courses" unitSingular="course" />
+      <CategoryTiles items={courseNoteCategories} unit="courses" unitSingular="course" cols={2} />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Course Notes</h2>

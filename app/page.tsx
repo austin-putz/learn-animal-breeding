@@ -1,6 +1,10 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import { CategoryTiles } from '@/components/layout/CategoryTiles'
+import { allBooks } from '@/lib/data/books'
+import { allSoftware } from '@/lib/data/software'
+import { allCourseNotes } from '@/lib/data/course-notes'
+import { allShortCourses } from '@/lib/data/short-courses'
 
 export const metadata = {
   title: 'Learn Animal Breeding',
@@ -8,26 +12,41 @@ export const metadata = {
     'Free educational resources for animal breeding and quantitative genetics: books, course notes, short courses and industry software.',
 }
 
+const total = (o: Record<string, unknown[]>) =>
+  Object.values(o).reduce((n, list) => n + list.length, 0)
+
 const sections = [
   {
     href: '/learn/books',
     name: 'Books',
+    count: total(allBooks),
+    unit: 'books',
+    unitSingular: 'book',
     description:
       'Essential textbooks and references for animal breeding and quantitative genetics.',
   },
   {
     href: '/learn/course-notes',
     name: 'Course Notes',
+    count: total(allCourseNotes),
+    unit: 'courses',
+    unitSingular: 'course',
     description: 'University course materials and lecture notes from leading programs.',
   },
   {
     href: '/resources/software',
     name: 'Software',
+    count: total(allSoftware),
+    unit: 'tools',
+    unitSingular: 'tool',
     description: 'Industry-standard tools for genetic evaluation and breeding programs.',
   },
   {
     href: '/learn/short-courses',
     name: 'Short Courses',
+    count: total(allShortCourses),
+    unit: 'courses',
+    unitSingular: 'course',
     description: 'Intensive workshops and short courses from universities worldwide.',
   },
 ]
@@ -73,28 +92,7 @@ export default function HomePage() {
 
       <section className="container max-w-[1400px] py-14">
         <h2 className="group-label pb-2">Explore Resources</h2>
-        <div className="flex flex-col">
-          {sections.map((section, i) => (
-            <Link
-              key={section.href}
-              href={section.href}
-              className={`group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 border-t border-line py-6 transition-[padding] hover:pl-2 ${
-                i === sections.length - 1 ? 'border-b' : ''
-              }`}
-            >
-              <div>
-                <div className="mb-1 font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-moss md:text-xl">
-                  {section.name}
-                </div>
-                <p className="max-w-[62ch] text-[13.5px] text-muted">{section.description}</p>
-              </div>
-              <ArrowRight
-                className="h-4 w-4 text-faint transition-colors group-hover:text-moss"
-                strokeWidth={1.75}
-              />
-            </Link>
-          ))}
-        </div>
+        <CategoryTiles items={sections} cols={4} />
       </section>
 
       <section className="container max-w-[1400px] pb-6">

@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { CategoryList } from '@/components/layout/CategoryList'
+import { CategoryTiles } from '@/components/layout/CategoryTiles'
 import { shortCourseCategories } from '@/lib/navigation'
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function ShortCoursesPage() {
         description="Intensive short courses and workshops from leading institutions. Comprehensive materials on genomic selection, programming, statistical methods, and breeding program design."
       />
 
-      <CategoryList items={shortCourseCategories} unit="courses" unitSingular="course" />
+      <CategoryTiles items={shortCourseCategories} unit="courses" unitSingular="course" cols={2} />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Short Courses</h2>
