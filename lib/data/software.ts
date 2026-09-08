@@ -120,7 +120,7 @@ export const evaluationsSoftware: SoftwareTool[] = [
     description: 'GPU accelerated software for extremely high performance and/or large scale genetic evaluations and breeding value prediction. Utilised in multiple very large multi-country and multi-breed implementations.',
     status: 'paid',
     links: [
-      { type: 'home', url: 'https://www.helicalco.com/genomic-prediction', label: 'Home' },
+      { type: 'home', url: 'https://www.helicalco.com/', label: 'Home' },
     ],
     tags: ['Evaluations', 'BLUP', 'Commercial'],
   },
