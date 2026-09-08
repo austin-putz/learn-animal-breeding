@@ -5,6 +5,7 @@ import { allBooks } from '@/lib/data/books'
 import { allSoftware } from '@/lib/data/software'
 import { allCourseNotes } from '@/lib/data/course-notes'
 import { allShortCourses } from '@/lib/data/short-courses'
+import { allMyBooks } from '@/lib/data/my-work'
 
 export const metadata = {
   title: 'Learn Animal Breeding',
@@ -26,6 +27,14 @@ const sections = [
       'Essential textbooks and references for animal breeding and quantitative genetics.',
   },
   {
+    href: '/learn/my-books',
+    name: 'My Books',
+    count: allMyBooks.length,
+    unit: 'books',
+    unitSingular: 'book',
+    description: 'Open textbooks I am writing on animal breeding and statistics, free to read online.',
+  },
+  {
     href: '/learn/course-notes',
     name: 'Course Notes',
     count: total(allCourseNotes),
@@ -34,20 +43,20 @@ const sections = [
     description: 'University course materials and lecture notes from leading programs.',
   },
   {
-    href: '/resources/software',
-    name: 'Software',
-    count: total(allSoftware),
-    unit: 'tools',
-    unitSingular: 'tool',
-    description: 'Industry-standard tools for genetic evaluation and breeding programs.',
-  },
-  {
     href: '/learn/short-courses',
     name: 'Short Courses',
     count: total(allShortCourses),
     unit: 'courses',
     unitSingular: 'course',
     description: 'Intensive workshops and short courses from universities worldwide.',
+  },
+  {
+    href: '/resources/software',
+    name: 'Software',
+    count: total(allSoftware),
+    unit: 'tools',
+    unitSingular: 'tool',
+    description: 'Industry-standard tools for genetic evaluation and breeding programs.',
   },
 ]
 
@@ -92,7 +101,7 @@ export default function HomePage() {
 
       <section className="container max-w-[1400px] py-14">
         <h2 className="group-label pb-2">Explore Resources</h2>
-        <CategoryTiles items={sections} cols={4} />
+        <CategoryTiles items={sections} cols={3} />
       </section>
 
       <section className="container max-w-[1400px] pb-6">
