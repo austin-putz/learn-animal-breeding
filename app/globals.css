@@ -3,20 +3,99 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * Ink and Moss. One neutral ramp, one accent.
+   * Values are space-separated RGB channels so Tailwind can apply opacity.
+   */
   :root {
-    --font-inter: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --paper: 250 250 249;
+    --surface: 255 255 255;
+    --sunken: 242 241 238;
+    --ink: 28 27 25;
+    --muted: 111 108 103;
+    --faint: 145 142 136;
+    --line: 228 226 221;
+    --line-strong: 210 207 200;
+    --moss: 47 93 69;
+    --moss-hover: 36 73 54;
+    --moss-wash: 237 242 239;
+    --moss-on: 251 252 251;
+  }
+
+  .dark {
+    --paper: 19 19 17;
+    --surface: 28 28 25;
+    --sunken: 25 25 22;
+    --ink: 242 241 237;
+    --muted: 165 162 155;
+    --faint: 124 121 114;
+    --line: 44 44 40;
+    --line-strong: 60 60 54;
+    --moss: 127 176 147;
+    --moss-hover: 150 194 167;
+    --moss-wash: 27 34 30;
+    --moss-on: 15 21 18;
   }
 
   * {
-    @apply border-neutral-200 dark:border-neutral-800;
+    @apply border-line;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100;
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-display font-semibold tracking-tight text-ink;
+    text-wrap: balance;
+  }
+
+  /* Numerals line up in columns wherever they are tabulated. */
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-moss ring-offset-2 ring-offset-paper rounded-sm;
+  }
+
+  ::selection {
+    @apply bg-moss-wash text-ink;
+  }
+}
+
+@layer components {
+  /*
+   * The metadata voice: years, counts, ISBNs, tags, statuses.
+   * Small, mono, letterspaced, never competing with the title.
+   */
+  .meta {
+    @apply font-mono text-[11.5px] uppercase tracking-[0.06em] text-faint;
+  }
+
+  .meta-sm {
+    @apply font-mono text-[10.5px] uppercase tracking-[0.07em] text-faint;
+  }
+
+  /* Group headings inside a page: Essential, Recommended, and so on. */
+  .group-label {
+    @apply font-mono text-[13px] font-medium uppercase tracking-[0.1em] text-ink;
+  }
+
+  /* A row of content separated by a hairline rather than boxed in a card. */
+  .rule-top {
+    @apply border-t border-line;
+  }
+
+  /* Quiet panel for asides and notes. Replaces the old blue callout boxes. */
+  .panel {
+    @apply rounded-lg bg-sunken p-5;
   }
 }
 
@@ -25,56 +104,41 @@
     text-wrap: balance;
   }
 
-  .glass {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Horizontal scrollers (the category rail) hide their scrollbar. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-
-  .glass-dark {
-    background-color: rgba(14, 165, 233, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .glass-dark {
-      background-color: rgba(14, 165, 233, 0.4);
-    }
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar, warmed to match the neutral ramp. */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-neutral-100 dark:bg-neutral-900;
+  @apply bg-sunken;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-neutral-300 dark:bg-neutral-700 rounded-full;
+  @apply rounded-full bg-line-strong;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-400 dark:bg-neutral-600;
+  @apply bg-faint;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
