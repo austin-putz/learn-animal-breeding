@@ -1,6 +1,22 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { LinkSection, type LinkRowItem } from '@/components/layout/LinkRow'
+import {
+  GraduationCap,
+  Users,
+  MessageCircle,
+  Briefcase,
+  Search,
+  Network,
+  Database,
+  Layers,
+  BookOpenCheck,
+  Globe,
+  Library,
+  Archive,
+  FolderSearch,
+} from 'lucide-react'
+import { type LinkRowItem } from '@/components/layout/LinkRow'
+import { LinkTileSection } from '@/components/layout/LinkTiles'
 
 export const metadata = {
   title: 'Journals & Research',
@@ -11,21 +27,25 @@ export const metadata = {
 const platforms: LinkRowItem[] = [
   {
     title: 'Google Scholar',
+    icon: GraduationCap,
     description: 'Search academic papers and follow authors for publication alerts',
     href: 'https://scholar.google.com/',
   },
   {
     title: 'ResearchGate',
+    icon: Users,
     description: 'Connect with researchers and access full-text papers',
     href: 'https://www.researchgate.net/',
   },
   {
     title: 'Twitter / X',
+    icon: MessageCircle,
     description: 'Follow researchers for real-time updates and discussions',
     href: 'https://twitter.com/',
   },
   {
     title: 'LinkedIn',
+    icon: Briefcase,
     description: 'Network with professionals and follow research updates',
     href: 'https://www.linkedin.com/',
   },
@@ -34,32 +54,38 @@ const platforms: LinkRowItem[] = [
 const databases: LinkRowItem[] = [
   {
     title: 'PubMed',
+    icon: Search,
     description: 'Free database of biomedical and life sciences literature from NCBI',
     href: 'https://pubmed.ncbi.nlm.nih.gov/',
   },
   {
     title: 'Web of Science',
+    icon: Network,
     description: 'Comprehensive citation database covering all disciplines',
     href: 
       'https://access.clarivate.com/login?app=wos&alternative=true&shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fmode%3DNextgen%26action%3Dtransfer%26path%3D%252Fwos%26DestApp%3DUA&referrer=mode%3DNextgen%26path%3D%252Fwos%26DestApp%3DUA%26action%3Dtransfer&roaming=true',
   },
   {
     title: 'Scopus',
+    icon: Database,
     description: "Elsevier's abstract and citation database with global research coverage",
     href: 'https://www.scopus.com/',
   },
   {
     title: 'CORE',
+    icon: Layers,
     description: "World's largest collection of open access research papers",
     href: 'https://core.ac.uk/',
   },
   {
     title: 'DOAJ',
+    icon: BookOpenCheck,
     description: 'Directory of Open Access Journals with quality-assessed content',
     href: 'https://doaj.org/',
   },
   {
     title: 'ScienceOpen',
+    icon: Globe,
     description: 'Free discovery platform with interactive research network',
     href: 'https://www.scienceopen.com/',
   },
@@ -68,16 +94,19 @@ const databases: LinkRowItem[] = [
 const libraries: LinkRowItem[] = [
   {
     title: 'ProQuest',
+    icon: FolderSearch,
     description: 'Comprehensive dissertations, theses, and academic journal database',
     href: 'https://www.proquest.com/',
   },
   {
     title: 'JSTOR',
+    icon: Library,
     description: 'Digital library of academic journals, books, and primary sources',
     href: 'https://www.jstor.org/',
   },
   {
     title: 'EBSCO',
+    icon: Archive,
     description: 'Research databases including Academic Search and Agriculture collections',
     href: 'https://www.ebsco.com/',
   },
@@ -206,23 +235,23 @@ export default function JournalsPage() {
         description="Key journals and platforms for staying current with animal breeding and quantitative genetics research"
       />
 
-      <LinkSection label="Find Papers & Follow Research" items={platforms} cols={2} />
+      <LinkTileSection label="Find Papers & Follow Research" items={platforms} cols={2} />
 
-      <LinkSection
+      <LinkTileSection
         label="Academic Search Databases"
         description="Search across millions of academic papers and research articles"
         items={databases}
         cols={3}
       />
 
-      <LinkSection
+      <LinkTileSection
         label="Institutional Library Resources"
         description="Access through your university or institutional library"
         items={libraries}
         cols={3}
       />
 
-      <LinkSection
+      <LinkTileSection
         label="Key Journals in Animal Breeding & Genetics"
         items={journals}
         cols={2}

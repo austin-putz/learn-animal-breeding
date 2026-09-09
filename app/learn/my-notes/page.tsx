@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { LinkSection } from '@/components/layout/LinkRow'
+import { LinkTileSection } from '@/components/layout/LinkTiles'
 import { Colophon } from '@/components/layout/Colophon'
 import { myWorkCategories } from '@/lib/navigation'
 import { rpubNotes } from '@/lib/data/my-work'
@@ -21,7 +21,7 @@ export default function MyNotesPage() {
         description="Interactive R tutorials and personal notes on animal breeding and statistics"
       />
 
-      <LinkSection
+      <LinkTileSection
         label="RPub Files"
         description="Interactive R tutorials created for classes at Iowa State University"
         items={rpubNotes}

@@ -8,8 +8,13 @@ const columns: Record<number, string> = {
 
 /**
  * The same tile as the section indexes, for pages whose items are the
- * destination rather than a category. There is no count or cover art to fill
- * the head, so the item's icon carries it at size, with the status opposite.
+ * destination rather than a category.
+ *
+ * The head exists to hold something, so it follows what the item actually has:
+ * an icon carries it at size with the status opposite (My Books); with no icon
+ * a short strip carries the status alone, which on Journals and YouTube is the
+ * publisher or the course and is the most identifying thing there is; with
+ * neither, there is no head to fill and the tile drops it.
  *
  * Announced-but-unpublished items are not links. They keep the shape so the
  * grid stays even, but drop the accent and the arrow: nothing to go to.
@@ -31,19 +36,29 @@ function Tile({ title, description, href, status, icon: Icon }: LinkRowItem) {
         }`}
       />
 
-      <div className="-mx-5 -mt-5 mb-5 flex h-[92px] items-end justify-between gap-4 border-b border-line bg-moss-wash px-5 pb-4">
-        {Icon && (
+      {Icon ? (
+        <div className="-mx-5 -mt-5 mb-5 flex h-[92px] items-end justify-between gap-4 border-b border-line bg-moss-wash px-5 pb-4">
           <Icon
             className={`h-10 w-10 flex-shrink-0 ${
               live ? 'text-moss/55 transition-colors duration-200 group-hover:text-moss' : 'text-faint'
             }`}
             strokeWidth={1.25}
           />
-        )}
-        {status && <span className="meta-sm">{status}</span>}
-      </div>
+          {status && <span className="meta-sm">{status}</span>}
+        </div>
+      ) : status ? (
+        <div className="-mx-5 -mt-5 mb-5 flex min-h-[42px] items-center border-b border-line bg-moss-wash px-5 py-2.5">
+          <span
+            className={`font-mono text-[11px] uppercase leading-tight tracking-[0.06em] ${
+              live ? 'text-moss/80 transition-colors duration-200 group-hover:text-moss' : 'text-faint'
+            }`}
+          >
+            {status}
+          </span>
+        </div>
+      ) : null}
 
-      <div className="flex-1">
+      <div className={`flex-1 ${Icon || status ? '' : 'pt-1'}`}>
         <h3
           className={`font-display text-[15px] font-semibold leading-snug tracking-tight ${
             live ? 'transition-colors group-hover:text-moss' : ''
