@@ -21,7 +21,7 @@ const total = (o: Record<string, unknown[]>) =>
 const sections = [
   {
     href: '/learn/books',
-    name: 'Textbooks',
+    name: 'Books',
     count: total(allBooks),
     unit: 'books',
     unitSingular: 'book',
