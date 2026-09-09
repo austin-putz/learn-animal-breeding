@@ -18,7 +18,7 @@ export default function BooksPage() {
         description="Curated collection of essential textbooks, course materials, and references for animal breeding, quantitative genetics, and related fields. Free PDFs available for public domain works."
       />
 
-      <CategoryTiles items={bookCategories} unit="books" unitSingular="book" cols={3} />
+      <CategoryTiles items={bookCategories} unit="books" unitSingular="book" cols={3} emphasis />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Resources</h2>

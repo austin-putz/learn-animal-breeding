@@ -49,13 +49,24 @@ export function CategoryTiles({
     : 'group flex flex-col rounded-lg border border-line bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-moss hover:shadow-lg focus-visible:-translate-y-0.5 focus-visible:border-moss'
 
   /*
-   * On the emphasised grid the count sits in its own washed band, so each tile
-   * has a head and a body rather than one undifferentiated rectangle. The band
-   * bleeds to the card edge, hence the negative margins against the p-5.
+   * On the emphasised grid the visual band gets its own washed ground and a
+   * rule under it, so each tile has a head and a body rather than one
+   * undifferentiated rectangle. The band bleeds to the card edge, hence the
+   * negative margins against the p-5.
+   *
+   * The two kinds of band differ in more than height. A count changes colour
+   * on hover and carries the state on its own; covers cannot, so their band
+   * deepens instead. Covers also need the taller band and the breathing room
+   * above them, since a pale scan on white has nothing to sit against.
    */
-  const band = emphasis
-    ? '-mx-5 -mt-5 mb-5 flex h-[92px] items-end border-b border-line bg-moss-wash px-5 pb-4 transition-colors duration-200'
-    : 'mb-5 flex h-[92px] items-end'
+  const bandFor = (hasCovers: boolean) => {
+    if (!emphasis) return 'mb-5 flex h-[92px] items-end'
+    const base =
+      '-mx-5 -mt-5 mb-5 flex items-end border-b border-line bg-moss-wash px-5 transition-colors duration-200'
+    return hasCovers
+      ? `${base} h-[124px] justify-between gap-4 pb-4`
+      : `${base} h-[92px] pb-4`
+  }
 
   return (
     <div className={`mt-8 grid auto-rows-fr grid-cols-1 gap-5 ${gridCols[cols]}`}>
@@ -75,9 +86,10 @@ export function CategoryTiles({
             )}
 
             {/* Visual band: covers where we have them, the count where we do not. */}
-            <div className={band}>
+            <div className={bandFor(covers.length > 0)}>
               {covers.length > 0 ? (
-                <div className="flex">
+                <>
+                  <div className="flex">
                   {covers.map((src, i) => (
                     <div
                       key={src}
@@ -102,7 +114,22 @@ export function CategoryTiles({
                       />
                     </div>
                   ))}
-                </div>
+                  </div>
+
+                  {/*
+                    On the emphasised grid the count moves up here. It balances
+                    a wide tile, where three covers leave the band lopsided,
+                    and it gives the band something that answers the hover.
+                  */}
+                  {emphasis && item.count !== undefined && (
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="font-mono text-[2.25rem] leading-none tracking-tight text-moss/55 transition-colors duration-200 group-hover:text-moss">
+                        {item.count}
+                      </span>
+                      <span className="meta-sm">{label}</span>
+                    </div>
+                  )}
+                </>
               ) : (
                 <div className="flex items-baseline gap-2">
                   <span
@@ -131,7 +158,7 @@ export function CategoryTiles({
 
             <div className="mt-5 flex items-center justify-between gap-3 border-t border-line pt-3">
               {/* The numeral variant already states the count, so it is not repeated here. */}
-              {covers.length > 0 && item.count !== undefined ? (
+              {!emphasis && covers.length > 0 && item.count !== undefined ? (
                 <span className="meta-sm">
                   {item.count} {label}
                 </span>

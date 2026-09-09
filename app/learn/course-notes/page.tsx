@@ -18,7 +18,13 @@ export default function CourseNotesPage() {
         description="Comprehensive lecture notes and course materials from leading universities. Free PDF downloads available for educational use."
       />
 
-      <CategoryTiles items={courseNoteCategories} unit="courses" unitSingular="course" cols={2} />
+      <CategoryTiles
+        items={courseNoteCategories}
+        unit="courses"
+        unitSingular="course"
+        cols={2}
+        emphasis
+      />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Course Notes</h2>

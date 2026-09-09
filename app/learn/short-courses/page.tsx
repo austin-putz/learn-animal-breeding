@@ -18,7 +18,13 @@ export default function ShortCoursesPage() {
         description="Intensive short courses and workshops from leading institutions. Comprehensive materials on genomic selection, programming, statistical methods, and breeding program design."
       />
 
-      <CategoryTiles items={shortCourseCategories} unit="courses" unitSingular="course" cols={2} />
+      <CategoryTiles
+        items={shortCourseCategories}
+        unit="courses"
+        unitSingular="course"
+        cols={2}
+        emphasis
+      />
 
       <section className="mt-14 border-t border-line pt-7">
         <h2 className="group-label mb-5">About These Short Courses</h2>
