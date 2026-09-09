@@ -8,9 +8,9 @@
    * Values are space-separated RGB channels so Tailwind can apply opacity.
    */
   :root {
-    --paper: 250 250 249;
+    --paper: 245 244 240;
     --surface: 255 255 255;
-    --sunken: 242 241 238;
+    --sunken: 238 237 233;
     --ink: 28 27 25;
     --muted: 111 108 103;
     --faint: 145 142 136;
