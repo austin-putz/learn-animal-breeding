@@ -1,6 +1,6 @@
 import { PageShell } from '@/components/layout/PageShell'
 import { PageHeader } from '@/components/layout/PageHeader'
-import { LinkSection } from '@/components/layout/LinkRow'
+import { LinkTileSection } from '@/components/layout/LinkTiles'
 import { Colophon } from '@/components/layout/Colophon'
 import { myWorkCategories } from '@/lib/navigation'
 import { animalBreedingBooks, statisticsBooks } from '@/lib/data/my-work'
@@ -21,13 +21,13 @@ export default function MyBooksPage() {
         description="Open textbooks on animal breeding and statistics, written in Quarto and free to read online. Some are finished, some are still being written."
       />
 
-      <LinkSection
+      <LinkTileSection
         label="Animal Breeding"
         description="Breeding theory and practice, from first principles through to program design"
         items={animalBreedingBooks}
       />
 
-      <LinkSection
+      <LinkTileSection
         label="Statistics"
         description="The statistical foundation underneath genetic evaluation"
         items={statisticsBooks}
