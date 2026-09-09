@@ -21,7 +21,7 @@ const total = (o: Record<string, unknown[]>) =>
 const sections = [
   {
     href: '/learn/books',
-    name: 'Books',
+    name: 'Textbooks',
     count: total(allBooks),
     unit: 'books',
     unitSingular: 'book',
@@ -37,12 +37,12 @@ const sections = [
     description: 'Open textbooks I am writing on animal breeding and statistics, free to read online.',
   },
   {
-    href: '/blog',
-    name: 'Blog',
-    count: getAllPosts().length,
-    unit: 'posts',
-    unitSingular: 'post',
-    description: 'Writing on animal breeding, data science and research methodology.',
+    href: '/resources/software',
+    name: 'Software',
+    count: total(allSoftware),
+    unit: 'tools',
+    unitSingular: 'tool',
+    description: 'Industry-standard tools for genetic evaluation and breeding programs.',
   },
   {
     href: '/learn/course-notes',
@@ -61,12 +61,12 @@ const sections = [
     description: 'Intensive workshops and short courses from universities worldwide.',
   },
   {
-    href: '/resources/software',
-    name: 'Software',
-    count: total(allSoftware),
-    unit: 'tools',
-    unitSingular: 'tool',
-    description: 'Industry-standard tools for genetic evaluation and breeding programs.',
+    href: '/blog',
+    name: 'Blog',
+    count: getAllPosts().length,
+    unit: 'posts',
+    unitSingular: 'post',
+    description: 'Writing on animal breeding, data science and research methodology.',
   },
 ]
 
@@ -140,7 +140,7 @@ export default function HomePage() {
 
       <section className="container max-w-[1400px] py-14">
         <h2 className="group-label pb-2">Explore Resources</h2>
-        <CategoryTiles items={sections} cols={3} />
+        <CategoryTiles items={sections} cols={3} emphasis />
       </section>
 
       <EssentialShelf />

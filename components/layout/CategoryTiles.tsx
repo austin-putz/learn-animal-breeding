@@ -24,18 +24,39 @@ const gridCols: Record<number, string> = {
  * covers give each tile its own identity, which is what the old per-category
  * gradients were reaching for. Where it does not (software), the count carries
  * the same band so the vertical rhythm matches across the site.
+ *
+ * `emphasis` is for the top-level grid on the home page, where the tiles are
+ * the primary way in and a flat outline reads as unfinished. It adds a moss
+ * hairline at the head of each tile, a soft lift off the paper, and a numeral
+ * with enough weight to be part of the composition rather than a watermark.
+ * Category indexes further down stay plain so they sit under their page title.
  */
 export function CategoryTiles({
   items,
   unit = 'items',
   unitSingular,
   cols = 3,
+  emphasis = false,
 }: {
   items: TileItem[]
   unit?: string
   unitSingular?: string
   cols?: 2 | 3 | 4 | 5
+  emphasis?: boolean
 }) {
+  const tile = emphasis
+    ? 'group relative flex flex-col overflow-hidden rounded-lg border border-line bg-surface p-5 shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:border-moss hover:shadow-xl focus-visible:-translate-y-0.5 focus-visible:border-moss'
+    : 'group flex flex-col rounded-lg border border-line bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-moss hover:shadow-lg focus-visible:-translate-y-0.5 focus-visible:border-moss'
+
+  /*
+   * On the emphasised grid the count sits in its own washed band, so each tile
+   * has a head and a body rather than one undifferentiated rectangle. The band
+   * bleeds to the card edge, hence the negative margins against the p-5.
+   */
+  const band = emphasis
+    ? '-mx-5 -mt-5 mb-5 flex h-[92px] items-end border-b border-line bg-moss-wash px-5 pb-4 transition-colors duration-200'
+    : 'mb-5 flex h-[92px] items-end'
+
   return (
     <div className={`mt-8 grid auto-rows-fr grid-cols-1 gap-5 ${gridCols[cols]}`}>
       {items.map((item) => {
@@ -45,13 +66,16 @@ export function CategoryTiles({
         const label = item.count === 1 ? one : many
 
         return (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="group flex flex-col rounded-lg border border-line bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-moss hover:shadow-lg focus-visible:-translate-y-0.5 focus-visible:border-moss"
-          >
+          <Link key={item.href} href={item.href} className={tile}>
+            {emphasis && (
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 z-10 h-[3px] bg-moss/45 transition-colors duration-200 group-hover:bg-moss"
+              />
+            )}
+
             {/* Visual band: covers where we have them, the count where we do not. */}
-            <div className="mb-5 flex h-[92px] items-end">
+            <div className={band}>
               {covers.length > 0 ? (
                 <div className="flex">
                   {covers.map((src, i) => (
@@ -81,7 +105,11 @@ export function CategoryTiles({
                 </div>
               ) : (
                 <div className="flex items-baseline gap-2">
-                  <span className="font-mono text-[3.25rem] leading-none tracking-tight text-line-strong transition-colors duration-200 group-hover:text-moss">
+                  <span
+                    className={`font-mono text-[3.25rem] leading-none tracking-tight transition-colors duration-200 group-hover:text-moss ${
+                      emphasis ? 'text-moss/55' : 'text-line-strong'
+                    }`}
+                  >
                     {item.count}
                   </span>
                   <span className="meta-sm">{label}</span>
