@@ -48,9 +48,10 @@ export const animalBreedingBooks: LinkRowItem[] = [
     icon: GraduationCap,
   },
   {
-    title: 'Animal Models',
+    title: 'Linear Models in Animal Breeding: A Worked Approach',
     description: 'Comprehensive guide to animal models for genetic evaluation',
-    status: 'Coming soon',
+    href: 'https://austin-putz.github.io/linear-models-in-animal-breeding/',
+    status: 'In progress',
     icon: Network,
   },
   {
