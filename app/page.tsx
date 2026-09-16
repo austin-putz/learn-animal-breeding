@@ -80,12 +80,12 @@ export default function HomePage() {
       */}
       <section className="relative isolate overflow-hidden bg-[#0B120E]">
         <Image
-          src="/images/general/hero-genetics.webp"
+          src="/images/general/hero-helix.webp"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-right"
         />
         {/*
           Scrim written as an explicit gradient rather than Tailwind stops: a
