@@ -380,6 +380,19 @@ export const breedCompositionSoftware: SoftwareTool[] = [
 
 export const simulationSoftware: SoftwareTool[] = [
   {
+    id: 'tidybreed',
+    name: 'tidybreed',
+    developer: 'Austin Putz',
+    description: 'Pipe-friendly breeding program simulation backed by DuckDB. Real dates instead of generations, custom tables and columns, simulations larger than RAM. Alpha; API settling toward 1.0.',
+    status: 'development',
+    links: [
+      { type: 'github', url: 'https://github.com/austin-putz/tidybreed', label: 'GitHub' },
+      { type: 'manual', url: 'https://austin-putz.github.io/tidybreed/', label: 'Manual' },
+      { type: 'home', url: '/tidybreed', label: 'Overview' },
+    ],
+    tags: ['Simulation', 'R Package', 'DuckDB', 'In Development'],
+  },
+  {
     id: 'alphasimr',
     name: 'AlphaSimR',
     developer: 'Chris Gaynor (Bayer), originally John Hickey (Roslin)',

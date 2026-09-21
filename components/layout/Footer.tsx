@@ -27,6 +27,7 @@ const columns = [
     links: [
       { href: '/about', label: 'About' },
       { href: '/blog', label: 'Blog' },
+      { href: '/tidybreed', label: 'tidybreed' },
     ],
   },
 ]
